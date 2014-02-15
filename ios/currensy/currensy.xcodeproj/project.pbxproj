@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2057114A18AF4B21001D0033 /* neel.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057114C18AF4B21001D0033 /* neel.png */; };
+		2057115318AF4BD0001D0033 /* Circle-ring-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057115518AF4BD0001D0033 /* Circle-ring-red.png */; };
+		2057115618AF4BD3001D0033 /* Circle-ring-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057115818AF4BD3001D0033 /* Circle-ring-green.png */; };
+		2057115918AF4BD5001D0033 /* Circle-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057115B18AF4BD5001D0033 /* Circle-mask.png */; };
+		20674B4518AF2AD100F7629A /* PeerBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20674B4418AF2AD100F7629A /* PeerBrowserViewController.m */; };
+		20674B4918AF2FC200F7629A /* CustomShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 20674B4718AF2FC200F7629A /* CustomShapes.m */; };
+		20674B4F18AF364E00F7629A /* AdvertiserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20674B4D18AF364E00F7629A /* AdvertiserViewController.m */; };
 		31B64FAF18AF28C300BF7769 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B64FAE18AF28C300BF7769 /* Foundation.framework */; };
 		31B64FB118AF28C300BF7769 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B64FB018AF28C300BF7769 /* CoreGraphics.framework */; };
 		31B64FB318AF28C300BF7769 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B64FB218AF28C300BF7769 /* UIKit.framework */; };
@@ -35,6 +42,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2057114B18AF4B21001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/neel.png; sourceTree = "<group>"; };
+		2057115418AF4BD0001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = "Base.lproj/Circle-ring-red.png"; sourceTree = "<group>"; };
+		2057115718AF4BD3001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = "Base.lproj/Circle-ring-green.png"; sourceTree = "<group>"; };
+		2057115A18AF4BD5001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = "Base.lproj/Circle-mask.png"; sourceTree = "<group>"; };
+		20674B4318AF2AD100F7629A /* PeerBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeerBrowserViewController.h; sourceTree = "<group>"; };
+		20674B4418AF2AD100F7629A /* PeerBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeerBrowserViewController.m; sourceTree = "<group>"; };
+		20674B4718AF2FC200F7629A /* CustomShapes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomShapes.m; sourceTree = "<group>"; };
+		20674B4818AF2FC200F7629A /* CustomShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomShapes.h; sourceTree = "<group>"; };
+		20674B4D18AF364E00F7629A /* AdvertiserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertiserViewController.m; sourceTree = "<group>"; };
+		20674B4E18AF364E00F7629A /* AdvertiserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertiserViewController.h; sourceTree = "<group>"; };
 		31B64FAB18AF28C300BF7769 /* currensy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = currensy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B64FAE18AF28C300BF7769 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		31B64FB018AF28C300BF7769 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -81,6 +98,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20674B4218AF2AB100F7629A /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				20674B4718AF2FC200F7629A /* CustomShapes.m */,
+				20674B4818AF2FC200F7629A /* CustomShapes.h */,
+				31B64FC618AF28C300BF7769 /* ViewController.h */,
+				31B64FC718AF28C300BF7769 /* ViewController.m */,
+			);
+			name = ui;
+			sourceTree = "<group>";
+		};
+		20674B4618AF2AE200F7629A /* multipeer */ = {
+			isa = PBXGroup;
+			children = (
+				20674B4318AF2AD100F7629A /* PeerBrowserViewController.h */,
+				20674B4418AF2AD100F7629A /* PeerBrowserViewController.m */,
+				20674B4E18AF364E00F7629A /* AdvertiserViewController.h */,
+				20674B4D18AF364E00F7629A /* AdvertiserViewController.m */,
+			);
+			name = multipeer;
+			sourceTree = "<group>";
+		};
+		20674B4C18AF347B00F7629A /* images */ = {
+			isa = PBXGroup;
+			children = (
+				2057115518AF4BD0001D0033 /* Circle-ring-red.png */,
+				2057115818AF4BD3001D0033 /* Circle-ring-green.png */,
+				2057115B18AF4BD5001D0033 /* Circle-mask.png */,
+				2057114C18AF4B21001D0033 /* neel.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		31B64FA218AF28C300BF7769 = {
 			isa = PBXGroup;
 			children = (
@@ -118,8 +168,9 @@
 				31B64FBE18AF28C300BF7769 /* AppDelegate.m */,
 				31B64FC018AF28C300BF7769 /* Main_iPhone.storyboard */,
 				31B64FC318AF28C300BF7769 /* Main_iPad.storyboard */,
-				31B64FC618AF28C300BF7769 /* ViewController.h */,
-				31B64FC718AF28C300BF7769 /* ViewController.m */,
+				20674B4C18AF347B00F7629A /* images */,
+				20674B4618AF2AE200F7629A /* multipeer */,
+				20674B4218AF2AB100F7629A /* ui */,
 				31B64FC918AF28C300BF7769 /* Images.xcassets */,
 				31B64FB518AF28C300BF7769 /* Supporting Files */,
 			);
@@ -202,6 +253,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = bitpass;
 				TargetAttributes = {
+					31B64FAA18AF28C300BF7769 = {
+						DevelopmentTeam = NF78B4JD3Q;
+					};
 					31B64FCE18AF28C300BF7769 = {
 						TestTargetID = 31B64FAA18AF28C300BF7769;
 					};
@@ -232,7 +286,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B64FC518AF28C300BF7769 /* Main_iPad.storyboard in Resources */,
+				2057115318AF4BD0001D0033 /* Circle-ring-red.png in Resources */,
+				2057114A18AF4B21001D0033 /* neel.png in Resources */,
+				2057115618AF4BD3001D0033 /* Circle-ring-green.png in Resources */,
 				31B64FCA18AF28C300BF7769 /* Images.xcassets in Resources */,
+				2057115918AF4BD5001D0033 /* Circle-mask.png in Resources */,
 				31B64FC218AF28C300BF7769 /* Main_iPhone.storyboard in Resources */,
 				31B64FB918AF28C300BF7769 /* InfoPlist.strings in Resources */,
 			);
@@ -254,8 +312,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				31B64FC818AF28C300BF7769 /* ViewController.m in Sources */,
+				20674B4F18AF364E00F7629A /* AdvertiserViewController.m in Sources */,
+				20674B4518AF2AD100F7629A /* PeerBrowserViewController.m in Sources */,
 				31B64FBF18AF28C300BF7769 /* AppDelegate.m in Sources */,
 				31B64FBB18AF28C300BF7769 /* main.m in Sources */,
+				20674B4918AF2FC200F7629A /* CustomShapes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +339,38 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2057114C18AF4B21001D0033 /* neel.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2057114B18AF4B21001D0033 /* Base */,
+			);
+			name = neel.png;
+			sourceTree = "<group>";
+		};
+		2057115518AF4BD0001D0033 /* Circle-ring-red.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2057115418AF4BD0001D0033 /* Base */,
+			);
+			name = "Circle-ring-red.png";
+			sourceTree = "<group>";
+		};
+		2057115818AF4BD3001D0033 /* Circle-ring-green.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2057115718AF4BD3001D0033 /* Base */,
+			);
+			name = "Circle-ring-green.png";
+			sourceTree = "<group>";
+		};
+		2057115B18AF4BD5001D0033 /* Circle-mask.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2057115A18AF4BD5001D0033 /* Base */,
+			);
+			name = "Circle-mask.png";
+			sourceTree = "<group>";
+		};
 		31B64FB718AF28C300BF7769 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -392,10 +485,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "currensy/currensy-Prefix.pch";
 				INFOPLIST_FILE = "currensy/currensy-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -405,10 +501,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "currensy/currensy-Prefix.pch";
 				INFOPLIST_FILE = "currensy/currensy-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -474,6 +573,7 @@
 				31B64FE218AF28C300BF7769 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		31B64FE318AF28C300BF7769 /* Build configuration list for PBXNativeTarget "currensyTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +582,7 @@
 				31B64FE518AF28C300BF7769 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
