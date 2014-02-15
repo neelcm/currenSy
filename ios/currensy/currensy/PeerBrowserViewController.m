@@ -372,6 +372,28 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
     
 }
 
+-(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID {
+    
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        
+        NSString *amt = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Transaction complete - " message:[@"You sent ฿" stringByAppendingString:amt] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            
+            [alert show];
+                        
+        });
+        
+    });
+    
+    
+    
+}
+
 -(void)session:(MCSession *)session didReceiveStream:(NSInputStream *)stream withName:(NSString *)streamName fromPeer:(MCPeerID *)peerID {
     
     NSLog(@"Received stream");

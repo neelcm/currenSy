@@ -16,13 +16,19 @@
     NSData *decryptedInvitationData; // Decrypted version of invitationData
     
     NSMutableArray *peerIDs;
+    NSMutableArray *peerButtons;
+    
+    NSMutableArray *transactions;
     
     __weak IBOutlet UITextField *payment_field;
     __weak IBOutlet UILabel *wait_message_field;
     
     int pic;
     
+    int clicked_button_index;
+    
 }
+@property (weak, nonatomic) IBOutlet UITextField *description_field;
 
 @property (weak, nonatomic) IBOutlet UITextField *amount_field;
 

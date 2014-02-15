@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="883" y="833"/>
         </scene>
-        <!--Peer Browser View Controller-->
+        <!--Peer Browser View Controller - Curren$y Card-->
         <scene sceneID="bvN-HD-0Cw">
             <objects>
                 <viewController id="Hab-Zv-I8z" customClass="PeerBrowserViewController" sceneMemberID="viewController">
@@ -92,13 +92,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rz9-3w-Dra">
-                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wMk-Fk-kaU"/>
+                    <navigationItem key="navigationItem" title="Curren$y Card" id="wMk-Fk-kaU"/>
                     <connections>
                         <outlet property="peers_view" destination="Rz9-3w-Dra" id="yaM-lq-iss"/>
                     </connections>
@@ -114,6 +114,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Bhh-hj-MbS"/>
+        <segue reference="0Tn-VK-Uat"/>
     </inferredMetricsTieBreakers>
 </document>
