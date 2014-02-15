@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CoinbaseAPI : NSObject
+@interface CoinbaseAuth : NSObject
+
++(void)getDataCoinbaseAuth: (NSString *) authCode clientKey:(NSString *)clientKey clientSecret:(NSString *)clientSecret;
 
 @end
