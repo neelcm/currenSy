@@ -46,6 +46,7 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
 {
     [super viewDidLoad];
     
+    
     // Initialize arrays
     peerIDs = [[NSMutableArray alloc]init];
     peer_slots = [[NSMutableArray alloc]init];
@@ -86,6 +87,7 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
     // What happens here
 }
 
+
 -(void) circleWasClicked:(UIButton *) sender  {
     
     NSLog(@"inviting %@", [peerIDs objectAtIndex:[sender tag]]);
@@ -101,6 +103,28 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
     [_peerBrowser invitePeer:pID toSession:_session withContext:context timeout:30];
 }
 
+-(void)temp_circleClicked {
+
+    // send picture to merch
+    
+    
+    
+//    
+//    
+//    [_session sendData:<#(NSData *)#> toPeers:<#(NSArray *)#> withMode:<#(MCSessionSendDataMode)#> error:<#(NSError *__autoreleasing *)#>]
+//    
+    
+    // display kb
+    
+    
+    
+    // now we hvae to go to enter clicked
+    
+    [_peerBrowser invitePeer:[peerIDs objectAtIndex:0] toSession:_session withContext:nil timeout:30];
+    
+}
+
+
 -(void)createCircle:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info {
     
     // Extract the first name from the full name
@@ -111,6 +135,7 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
     
     // Background image is high-res profile picture
     UIImage *bgImage = [UIImage imageNamed:@"neel.png"];
+    
     NSLog(@"image = %@", bgImage);
     
     UIButton *new_peer_button = [CustomShapes createCircleWithImage:bgImage];
@@ -122,15 +147,24 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
     CGPoint center = [self findCenter];
     new_peer_button.center = center;
     
+    //[new_peer_button addTarget:self action:@selector(temp_circleClicked) forControlEvents:UIControlEventTouchUpInside];
+    
+    [new_peer_button setUserInteractionEnabled:NO];
+    
+    [self temp_circleClicked];
+    
     [self fadeIn:new_peer_button];
     
+    /*
     [UIView animateWithDuration:0.75
                      animations:^(void) {
-                         [[[new_peer_button subviews]objectAtIndex:0]setAlpha:0.7];
+                         [[[new_peer_button subviews]objectAtIndex:0]setAlpha:0.5];
                      }
                      completion:^(BOOL finished){
                          NSLog(@"animation finished");
                      }];
+     */
+    
     
     [peer_buttons addObject:new_peer_button];
     
@@ -164,7 +198,7 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
 -(void)browser:(MCNearbyServiceBrowser *)browser lostPeer:(MCPeerID *)peerID {
     
     NSLog(@"lost peer: %@", [peerID displayName]);
-    
+
     
     int index = [peerIDs indexOfObject:peerID];
     
@@ -173,6 +207,7 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
     // Mark spot on the grid as free
     [self markSlotAsFree:[button center]];
     
+    /*
     [UIView animateWithDuration:1.5
                      animations:^(void) {
                          [[[button subviews]objectAtIndex:0]setAlpha:0];
@@ -182,6 +217,10 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
                          NSLog(@"animation finished");
                          [self fadeOut:button];
                      }];
+     
+     */
+    
+    [self fadeOut:button]; 
     
     
     [peerIDs removeObjectAtIndex:index];
@@ -255,7 +294,7 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
         button.alpha = 1;
     } completion: ^(BOOL finished) {
         // Auto invite the peer
-        [self circleWasClicked:button];
+       // [self circleWasClicked:button];
         
     }];
 }
@@ -276,7 +315,7 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
 // Finds the CGPoint of the center of a button as per the next available spot on the grid
 -(CGPoint)findCenter {
     
-    return CGPointMake(110, 130);
+    return CGPointMake(160, 130);
     
     /*
     for(int i = 0; i < [peer_slots count]; i++) {
@@ -352,7 +391,6 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
 - (void)nearbyConnectionDataForPeer:(MCPeerID *)peerID withCompletionHandler:(void (^)(NSData *connectionData, NSError *error))completionHandler {
     
 }
-
 
 - (IBAction)back_button_clicked:(id)sender {
     // End the session/advertiser etc

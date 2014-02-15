@@ -20,6 +20,7 @@
     MCPeerID *hostID; // This VC MCPeerID
     
     NSMutableArray *peer_slots; // "Slots" in the 3x3 grid for circles to populate
+    
 }
 
 @property (weak, nonatomic) IBOutlet UIView *peers_view;
@@ -27,12 +28,17 @@
 @property (weak, nonatomic) IBOutlet UILabel *bal_label;
 
 @property (weak, nonatomic) IBOutlet UIButton *done_button;
+- (IBAction)enter_clicked:(id)sender;
 
 - (IBAction)back_button_clicked:(id)sender;
 - (IBAction)done_button_clicked:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *enter_button;
+@property (weak, nonatomic) IBOutlet UITextField *amount_field;
 
 -(void) circleWasClicked:(UIButton *) sender;
 
 -(void)createCircle:(MCPeerID *)peerID withDiscoveryInfo:(NSDictionary *)info;
+
+-(void)temp_circleClicked;
 
 @end

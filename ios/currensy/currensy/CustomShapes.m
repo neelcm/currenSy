@@ -10,9 +10,9 @@
 
 @implementation CustomShapes
 
-+(UIView *)createCircleWithImage:(UIImage *)image {
++(UIButton *)createCircleWithImage:(UIImage *)image {
     
-    UIView *rootView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 75, 75)];
+  //  UIView *rootView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 75, 75)];
     
     UIImage *circle_mask = [UIImage imageNamed:@"Circle-mask.png"];
     UIImage *red_ring = [UIImage imageNamed:@"Circle-ring-red.png"];
@@ -40,31 +40,37 @@
     
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 0, 75, 75);
+    button.frame = CGRectMake(0, 0, 100, 100);
     button.center = CGPointMake(80, 80);
     
     
-    [button setImageEdgeInsets:UIEdgeInsetsMake(5, 5, 5, 5)];
+    [button setImageEdgeInsets:UIEdgeInsetsMake(14, 14, 14, 14)];
     
     [button setImage:maskedImage forState:UIControlStateNormal];
     
     //[button setBackgroundImage:[self imageByApplyingAlpha:1.0 withImage:green_ring] forState:UIControlStateNormal];
     
     UIView *greenView = [[UIImageView alloc] initWithImage:green_ring];
-    greenView.frame = CGRectMake(0, 0, 75, 75);
-    greenView.center = CGPointMake(80, 80);
+    greenView.frame = CGRectMake(0, 0, 100, 100);
+   // greenView.center = CGPointMake(80, 80);
     greenView.alpha = 0;
     
     UIView *redView = [[UIImageView alloc]initWithImage:red_ring];
-    redView.frame = CGRectMake(0,0,75,75);
-    redView.center = CGPointMake(80, 80);
+    redView.frame = CGRectMake(0,0,100,100);
+    //redView.center = CGPointMake(80, 80);
     redView.alpha = 0;
     
-    [rootView addSubview:greenView];
-    [rootView addSubview:redView];
-    [rootView addSubview:button];
 
-    return rootView;
+ //   [button addSubview:greenView];
+ //   [button addSubview:redView];
+    
+ //   [rootView addSubview:greenView];
+ //   [rootView addSubview:redView];
+ //   [rootView addSubview:button];
+
+    //return rootView;
+    
+    return button;
 }
 
 + (UIImage *)imageByApplyingAlpha: (CGFloat) alpha withImage: (UIImage *)image {
@@ -88,6 +94,18 @@
     UIGraphicsEndImageContext();
     
     return newImage;
+}
+
++ (UIImage *) imageWithView:(UIView *)view
+{
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0);
+    [view.layer renderInContext:UIGraphicsGetCurrentContext()];
+    
+    UIImage * img = UIGraphicsGetImageFromCurrentImageContext();
+    
+    UIGraphicsEndImageContext();
+    
+    return img;
 }
 
 @end

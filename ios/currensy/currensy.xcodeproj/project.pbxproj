@@ -11,6 +11,10 @@
 		2057115318AF4BD0001D0033 /* Circle-ring-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057115518AF4BD0001D0033 /* Circle-ring-red.png */; };
 		2057115618AF4BD3001D0033 /* Circle-ring-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057115818AF4BD3001D0033 /* Circle-ring-green.png */; };
 		2057115918AF4BD5001D0033 /* Circle-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057115B18AF4BD5001D0033 /* Circle-mask.png */; };
+		2057115E18AF717C001D0033 /* neel_circle.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057116018AF717C001D0033 /* neel_circle.png */; };
+		2057116318AF8882001D0033 /* nikhil.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057116518AF8882001D0033 /* nikhil.png */; };
+		2057116A18AF8D50001D0033 /* dave.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057116C18AF8D50001D0033 /* dave.png */; };
+		2057116D18AF8D53001D0033 /* kortina.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057116F18AF8D53001D0033 /* kortina.png */; };
 		20674B4518AF2AD100F7629A /* PeerBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20674B4418AF2AD100F7629A /* PeerBrowserViewController.m */; };
 		20674B4918AF2FC200F7629A /* CustomShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 20674B4718AF2FC200F7629A /* CustomShapes.m */; };
 		20674B4F18AF364E00F7629A /* AdvertiserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20674B4D18AF364E00F7629A /* AdvertiserViewController.m */; };
@@ -42,10 +46,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2057114B18AF4B21001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/neel.png; sourceTree = "<group>"; };
-		2057115418AF4BD0001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = "Base.lproj/Circle-ring-red.png"; sourceTree = "<group>"; };
-		2057115718AF4BD3001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = "Base.lproj/Circle-ring-green.png"; sourceTree = "<group>"; };
-		2057115A18AF4BD5001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = "Base.lproj/Circle-mask.png"; sourceTree = "<group>"; };
+		2057114B18AF4B21001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/neel.png; sourceTree = "<group>"; };
+		2057115418AF4BD0001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/Circle-ring-red.png"; sourceTree = "<group>"; };
+		2057115718AF4BD3001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/Circle-ring-green.png"; sourceTree = "<group>"; };
+		2057115A18AF4BD5001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/Circle-mask.png"; sourceTree = "<group>"; };
+		2057115F18AF717C001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/neel_circle.png; sourceTree = "<group>"; };
+		2057116418AF8882001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/nikhil.png; sourceTree = "<group>"; };
+		2057116B18AF8D50001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/dave.png; sourceTree = "<group>"; };
+		2057116E18AF8D53001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/kortina.png; sourceTree = "<group>"; };
 		20674B4318AF2AD100F7629A /* PeerBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeerBrowserViewController.h; sourceTree = "<group>"; };
 		20674B4418AF2AD100F7629A /* PeerBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeerBrowserViewController.m; sourceTree = "<group>"; };
 		20674B4718AF2FC200F7629A /* CustomShapes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomShapes.m; sourceTree = "<group>"; };
@@ -101,8 +109,8 @@
 		20674B4218AF2AB100F7629A /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				20674B4718AF2FC200F7629A /* CustomShapes.m */,
 				20674B4818AF2FC200F7629A /* CustomShapes.h */,
+				20674B4718AF2FC200F7629A /* CustomShapes.m */,
 				31B64FC618AF28C300BF7769 /* ViewController.h */,
 				31B64FC718AF28C300BF7769 /* ViewController.m */,
 			);
@@ -123,6 +131,10 @@
 		20674B4C18AF347B00F7629A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				2057116C18AF8D50001D0033 /* dave.png */,
+				2057116F18AF8D53001D0033 /* kortina.png */,
+				2057116518AF8882001D0033 /* nikhil.png */,
+				2057116018AF717C001D0033 /* neel_circle.png */,
 				2057115518AF4BD0001D0033 /* Circle-ring-red.png */,
 				2057115818AF4BD3001D0033 /* Circle-ring-green.png */,
 				2057115B18AF4BD5001D0033 /* Circle-mask.png */,
@@ -285,12 +297,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2057116318AF8882001D0033 /* nikhil.png in Resources */,
 				31B64FC518AF28C300BF7769 /* Main_iPad.storyboard in Resources */,
+				2057116D18AF8D53001D0033 /* kortina.png in Resources */,
 				2057115318AF4BD0001D0033 /* Circle-ring-red.png in Resources */,
 				2057114A18AF4B21001D0033 /* neel.png in Resources */,
 				2057115618AF4BD3001D0033 /* Circle-ring-green.png in Resources */,
 				31B64FCA18AF28C300BF7769 /* Images.xcassets in Resources */,
 				2057115918AF4BD5001D0033 /* Circle-mask.png in Resources */,
+				2057116A18AF8D50001D0033 /* dave.png in Resources */,
+				2057115E18AF717C001D0033 /* neel_circle.png in Resources */,
 				31B64FC218AF28C300BF7769 /* Main_iPhone.storyboard in Resources */,
 				31B64FB918AF28C300BF7769 /* InfoPlist.strings in Resources */,
 			);
@@ -369,6 +385,38 @@
 				2057115A18AF4BD5001D0033 /* Base */,
 			);
 			name = "Circle-mask.png";
+			sourceTree = "<group>";
+		};
+		2057116018AF717C001D0033 /* neel_circle.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2057115F18AF717C001D0033 /* Base */,
+			);
+			name = neel_circle.png;
+			sourceTree = "<group>";
+		};
+		2057116518AF8882001D0033 /* nikhil.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2057116418AF8882001D0033 /* Base */,
+			);
+			name = nikhil.png;
+			sourceTree = "<group>";
+		};
+		2057116C18AF8D50001D0033 /* dave.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2057116B18AF8D50001D0033 /* Base */,
+			);
+			name = dave.png;
+			sourceTree = "<group>";
+		};
+		2057116F18AF8D53001D0033 /* kortina.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2057116E18AF8D53001D0033 /* Base */,
+			);
+			name = kortina.png;
 			sourceTree = "<group>";
 		};
 		31B64FB718AF28C300BF7769 /* InfoPlist.strings */ = {
@@ -492,6 +540,7 @@
 				INFOPLIST_FILE = "currensy/currensy-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -508,6 +557,7 @@
 				INFOPLIST_FILE = "currensy/currensy-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

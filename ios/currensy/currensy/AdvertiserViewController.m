@@ -9,6 +9,7 @@
 #import "AdvertiserViewController.h"
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import "PeerBrowserViewController.h"
+#import "CustomShapes.h"
 
 static NSString * const serviceType = @"service"; // --> it is now a hash of the user profile url (uniq)
 
@@ -29,6 +30,11 @@ static NSString * const messageKey = @"message-key"; // Message key
 @synthesize pay_button;
 @synthesize bal_label;
 @synthesize nav_bar;
+@synthesize feed_table;
+
+
+@synthesize amount_field;
+@synthesize enter_button;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,9 +49,16 @@ static NSString * const messageKey = @"message-key"; // Message key
 - (void)viewDidLoad
 {
     
+    [enter_button setAlpha:0.0];
+    [amount_field setAlpha:0.0];
+    
    // [[self view]setUserInteractionEnabled:YES];
     
     [super viewDidLoad];
+    
+    peerIDs = [[NSMutableArray alloc]init];
+    
+    pic = 0;
 	
     // Do any additional setup after loading the view.
     
@@ -86,7 +99,10 @@ static NSString * const messageKey = @"message-key"; // Message key
 // Called when this peer receives an invitation from another peer (usu. host)
 -(void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didReceiveInvitationFromPeer:(MCPeerID *)peerID withContext:(NSData *)context invitationHandler:(void (^)(BOOL, MCSession *))invitationHandler {
     
-    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    if(![peerIDs containsObject:peerID]) {
+        NSLog(@"invite from %@", peerID);
+        
+        pic++;
         // Background processing
         
         // Copy & store the invitation handler
@@ -107,28 +123,70 @@ static NSString * const messageKey = @"message-key"; // Message key
         // Respond to peer (usu. host)
         invitationHandler([@YES boolValue], _session);
         
-        dispatch_async( dispatch_get_main_queue(), ^{
-            // Update the UI/send notifications based on the results of the background processing
-            
-            [activity_indicator stopAnimating];
-            
-           // [GlobalFunctions displayAlertDialogWithTitle:@"Connected to host" message:@"" cancelButtonTitle:@"OK"];
-            
-            [activity_indicator setHidden:YES];
-            [wait_message_field setHidden:YES];
-            
-            [payment_field setHidden:NO];
-            [pay_button setHidden:NO];
-            [payment_field becomeFirstResponder];
-            
-        });
-    });
+        
+        if(pic == 1) {
+            UIImage *bgImage = [UIImage imageNamed:@"nikhil.png"];
+            NSLog(@"image = %@", bgImage);
+            UIButton *new_peer_button = [CustomShapes createCircleWithImage:bgImage];
+            [new_peer_button setTag:1];
+            CGPoint center = CGPointMake(196, 50);
+            new_peer_button.center = center;
+            [new_peer_button addTarget:self action:@selector(temp_circleClicked) forControlEvents:UIControlEventTouchUpInside];
+            [self fadeIn:new_peer_button];
+        }
+        
+        else if(pic == 2) {
+            UIImage *bgImage = [UIImage imageNamed:@"dave.png"];
+            NSLog(@"image = %@", bgImage);
+            UIButton *new_peer_button = [CustomShapes createCircleWithImage:bgImage];
+            [new_peer_button setTag:1];
+            CGPoint center = CGPointMake(196, 150);
+            new_peer_button.center = center;
+            [new_peer_button addTarget:self action:@selector(temp_circleClicked) forControlEvents:UIControlEventTouchUpInside];
+            [self fadeIn:new_peer_button];
+        }
+        
+        else if(pic == 3) {
+            UIImage *bgImage = [UIImage imageNamed:@"kortina.png"];
+            NSLog(@"image = %@", bgImage);
+            UIButton *new_peer_button = [CustomShapes createCircleWithImage:bgImage];
+            [new_peer_button setTag:1];
+            CGPoint center = CGPointMake(196, 250);
+            new_peer_button.center = center;
+            [new_peer_button addTarget:self action:@selector(temp_circleClicked) forControlEvents:UIControlEventTouchUpInside];
+            [self fadeIn:new_peer_button];
+        }
+    }
+    
+    
+    
+}
+
+-(void)temp_circleClicked {
+        // bring up a keyboard
+    [amount_field becomeFirstResponder];
+    
+    
+    
+    // fade in field and enter button
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        amount_field.alpha = 1;
+        enter_button.alpha = 1;
+    } completion: ^(BOOL finished) {
+        
+        
+    }];
+    
+    
 }
 
 // Eventually use this to tell advertisers about tip, etc.
 -(void)session:(MCSession *)session didReceiveData:(NSData *)data fromPeer:(MCPeerID *)peerID {
     
-    NSLog(@"AdvertiserVC received data");
+    NSLog(@"AdvertiserVC received data, %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    
+    
     
 }
 
@@ -274,4 +332,36 @@ static NSString * const messageKey = @"message-key"; // Message key
     
 }
 
+// Assumes button has not been added to view yet
+-(void)fadeIn: (UIButton *)button {
+    button.alpha = 0;
+    [peers_view addSubview:button];
+    [UIView animateWithDuration:0.3 animations:^{
+        button.alpha = 1;
+    } completion: ^(BOOL finished) {
+        // Auto invite the peer
+       // [self circleWasClicked:button];
+        
+    }];
+}
+
+// Will remove button from the view upon completion
+-(void)fadeOut: (UIButton *)button {
+    button.alpha = 1;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        button.alpha = 0;
+    } completion: ^(BOOL finished) {
+        [button removeFromSuperview];
+        NSLog(@"removed button from superview");
+    }];
+    
+}
+
+- (IBAction)enter_clicked:(id)sender {
+    // make the transaction
+    
+    
+    // notify the peer
+}
 @end
