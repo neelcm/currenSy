@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		2057114A18AF4B21001D0033 /* neel.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057114C18AF4B21001D0033 /* neel.png */; };
 		2057115318AF4BD0001D0033 /* Circle-ring-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057115518AF4BD0001D0033 /* Circle-ring-red.png */; };
 		2057115618AF4BD3001D0033 /* Circle-ring-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057115818AF4BD3001D0033 /* Circle-ring-green.png */; };
@@ -18,6 +19,9 @@
 		20674B4518AF2AD100F7629A /* PeerBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20674B4418AF2AD100F7629A /* PeerBrowserViewController.m */; };
 		20674B4918AF2FC200F7629A /* CustomShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 20674B4718AF2FC200F7629A /* CustomShapes.m */; };
 		20674B4F18AF364E00F7629A /* AdvertiserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20674B4D18AF364E00F7629A /* AdvertiserViewController.m */; };
+=======
+		3191BFAB18AF92C200643006 /* CoinbaseAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191BFAA18AF92C200643006 /* CoinbaseAuth.m */; };
+>>>>>>> 783dc5b0acb690a2693ca3fb78435f6cc17462c9
 		31B64FAF18AF28C300BF7769 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B64FAE18AF28C300BF7769 /* Foundation.framework */; };
 		31B64FB118AF28C300BF7769 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B64FB018AF28C300BF7769 /* CoreGraphics.framework */; };
 		31B64FB318AF28C300BF7769 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B64FB218AF28C300BF7769 /* UIKit.framework */; };
@@ -46,6 +50,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+<<<<<<< HEAD
 		2057114B18AF4B21001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/neel.png; sourceTree = "<group>"; };
 		2057115418AF4BD0001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/Circle-ring-red.png"; sourceTree = "<group>"; };
 		2057115718AF4BD3001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/Circle-ring-green.png"; sourceTree = "<group>"; };
@@ -60,6 +65,10 @@
 		20674B4818AF2FC200F7629A /* CustomShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomShapes.h; sourceTree = "<group>"; };
 		20674B4D18AF364E00F7629A /* AdvertiserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertiserViewController.m; sourceTree = "<group>"; };
 		20674B4E18AF364E00F7629A /* AdvertiserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertiserViewController.h; sourceTree = "<group>"; };
+=======
+		3191BFA918AF92C200643006 /* CoinbaseAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinbaseAuth.h; sourceTree = "<group>"; };
+		3191BFAA18AF92C200643006 /* CoinbaseAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoinbaseAuth.m; sourceTree = "<group>"; };
+>>>>>>> 783dc5b0acb690a2693ca3fb78435f6cc17462c9
 		31B64FAB18AF28C300BF7769 /* currensy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = currensy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B64FAE18AF28C300BF7769 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		31B64FB018AF28C300BF7769 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -180,9 +189,16 @@
 				31B64FBE18AF28C300BF7769 /* AppDelegate.m */,
 				31B64FC018AF28C300BF7769 /* Main_iPhone.storyboard */,
 				31B64FC318AF28C300BF7769 /* Main_iPad.storyboard */,
+<<<<<<< HEAD
 				20674B4C18AF347B00F7629A /* images */,
 				20674B4618AF2AE200F7629A /* multipeer */,
 				20674B4218AF2AB100F7629A /* ui */,
+=======
+				31B64FC618AF28C300BF7769 /* ViewController.h */,
+				31B64FC718AF28C300BF7769 /* ViewController.m */,
+				3191BFA918AF92C200643006 /* CoinbaseAuth.h */,
+				3191BFAA18AF92C200643006 /* CoinbaseAuth.m */,
+>>>>>>> 783dc5b0acb690a2693ca3fb78435f6cc17462c9
 				31B64FC918AF28C300BF7769 /* Images.xcassets */,
 				31B64FB518AF28C300BF7769 /* Supporting Files */,
 			);
@@ -331,6 +347,7 @@
 				20674B4F18AF364E00F7629A /* AdvertiserViewController.m in Sources */,
 				20674B4518AF2AD100F7629A /* PeerBrowserViewController.m in Sources */,
 				31B64FBF18AF28C300BF7769 /* AppDelegate.m in Sources */,
+				3191BFAB18AF92C200643006 /* CoinbaseAuth.m in Sources */,
 				31B64FBB18AF28C300BF7769 /* main.m in Sources */,
 				20674B4918AF2FC200F7629A /* CustomShapes.m in Sources */,
 			);
