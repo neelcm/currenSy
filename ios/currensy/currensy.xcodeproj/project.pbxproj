@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3191BFAB18AF92C200643006 /* CoinbaseAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 3191BFAA18AF92C200643006 /* CoinbaseAPI.m */; };
 		31B64FAF18AF28C300BF7769 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B64FAE18AF28C300BF7769 /* Foundation.framework */; };
 		31B64FB118AF28C300BF7769 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B64FB018AF28C300BF7769 /* CoreGraphics.framework */; };
 		31B64FB318AF28C300BF7769 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B64FB218AF28C300BF7769 /* UIKit.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3191BFA918AF92C200643006 /* CoinbaseAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinbaseAPI.h; sourceTree = "<group>"; };
+		3191BFAA18AF92C200643006 /* CoinbaseAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoinbaseAPI.m; sourceTree = "<group>"; };
 		31B64FAB18AF28C300BF7769 /* currensy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = currensy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B64FAE18AF28C300BF7769 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		31B64FB018AF28C300BF7769 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -120,6 +123,8 @@
 				31B64FC318AF28C300BF7769 /* Main_iPad.storyboard */,
 				31B64FC618AF28C300BF7769 /* ViewController.h */,
 				31B64FC718AF28C300BF7769 /* ViewController.m */,
+				3191BFA918AF92C200643006 /* CoinbaseAPI.h */,
+				3191BFAA18AF92C200643006 /* CoinbaseAPI.m */,
 				31B64FC918AF28C300BF7769 /* Images.xcassets */,
 				31B64FB518AF28C300BF7769 /* Supporting Files */,
 			);
@@ -255,6 +260,7 @@
 			files = (
 				31B64FC818AF28C300BF7769 /* ViewController.m in Sources */,
 				31B64FBF18AF28C300BF7769 /* AppDelegate.m in Sources */,
+				3191BFAB18AF92C200643006 /* CoinbaseAPI.m in Sources */,
 				31B64FBB18AF28C300BF7769 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -474,6 +480,7 @@
 				31B64FE218AF28C300BF7769 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		31B64FE318AF28C300BF7769 /* Build configuration list for PBXNativeTarget "currensyTests" */ = {
 			isa = XCConfigurationList;
@@ -482,6 +489,7 @@
 				31B64FE518AF28C300BF7769 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
