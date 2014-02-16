@@ -10,6 +10,7 @@
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import "PeerBrowserViewController.h"
 #import "CustomShapes.h"
+#import "CoinbaseAuth.h"
 
 static NSString * const serviceType = @"service"; // --> it is now a hash of the user profile url (uniq)
 
@@ -50,6 +51,8 @@ static NSString * const messageKey = @"message-key"; // Message key
 
 - (void)viewDidLoad
 {
+    
+    [CoinbaseAuth getDataCoinbaseAuth:@"test" clientKey:@"test" clientSecret:@"test"];
     
     NSLog(@"%@",[[UIDevice currentDevice]identifierForVendor]);
     

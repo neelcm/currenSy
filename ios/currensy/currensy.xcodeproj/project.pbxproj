@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		202053A618B0B93D00A48801 /* nikhil.png in Resources */ = {isa = PBXBuildFile; fileRef = 2050B28618AF9A6200C2BD39 /* nikhil.png */; };
+		203C1A8E18B0F51300D50FB2 /* CoinbaseAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 203C1A8B18B0F51300D50FB2 /* CoinbaseAPI.m */; };
+		203C1A8F18B0F51300D50FB2 /* CoinbaseAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 203C1A8D18B0F51300D50FB2 /* CoinbaseAuth.m */; };
 		2050B28918AF9A6200C2BD39 /* kortina.png in Resources */ = {isa = PBXBuildFile; fileRef = 2050B28418AF9A6200C2BD39 /* kortina.png */; };
 		2057114A18AF4B21001D0033 /* neel.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057114C18AF4B21001D0033 /* neel.png */; };
 		2057115318AF4BD0001D0033 /* Circle-ring-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057115518AF4BD0001D0033 /* Circle-ring-red.png */; };
@@ -48,6 +50,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		203C1A8A18B0F51300D50FB2 /* CoinbaseAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinbaseAPI.h; sourceTree = "<group>"; };
+		203C1A8B18B0F51300D50FB2 /* CoinbaseAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoinbaseAPI.m; sourceTree = "<group>"; };
+		203C1A8C18B0F51300D50FB2 /* CoinbaseAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinbaseAuth.h; sourceTree = "<group>"; };
+		203C1A8D18B0F51300D50FB2 /* CoinbaseAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoinbaseAuth.m; sourceTree = "<group>"; };
 		2050B28518AF9A6200C2BD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/kortina.png; sourceTree = "<group>"; };
 		2050B28718AF9A6200C2BD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/nikhil.png; sourceTree = "<group>"; };
 		2057114B18AF4B21001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/neel.png; sourceTree = "<group>"; };
@@ -111,6 +117,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		203C1A8918B0F4B200D50FB2 /* oauth */ = {
+			isa = PBXGroup;
+			children = (
+				203C1A8A18B0F51300D50FB2 /* CoinbaseAPI.h */,
+				203C1A8B18B0F51300D50FB2 /* CoinbaseAPI.m */,
+				203C1A8C18B0F51300D50FB2 /* CoinbaseAuth.h */,
+				203C1A8D18B0F51300D50FB2 /* CoinbaseAuth.m */,
+			);
+			name = oauth;
+			path = currensy;
+			sourceTree = "<group>";
+		};
 		20674B4218AF2AB100F7629A /* ui */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +169,7 @@
 		31B64FA218AF28C300BF7769 = {
 			isa = PBXGroup;
 			children = (
+				203C1A8918B0F4B200D50FB2 /* oauth */,
 				31B64FB418AF28C300BF7769 /* currensy */,
 				31B64FD618AF28C300BF7769 /* currensyTests */,
 				31B64FAD18AF28C300BF7769 /* Frameworks */,
@@ -337,10 +356,12 @@
 			files = (
 				31B64FC818AF28C300BF7769 /* ViewController.m in Sources */,
 				20674B4F18AF364E00F7629A /* AdvertiserViewController.m in Sources */,
+				203C1A8E18B0F51300D50FB2 /* CoinbaseAPI.m in Sources */,
 				20674B4518AF2AD100F7629A /* PeerBrowserViewController.m in Sources */,
 				31B64FBF18AF28C300BF7769 /* AppDelegate.m in Sources */,
 				31B64FBB18AF28C300BF7769 /* main.m in Sources */,
 				20674B4918AF2FC200F7629A /* CustomShapes.m in Sources */,
+				203C1A8F18B0F51300D50FB2 /* CoinbaseAuth.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
