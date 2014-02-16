@@ -32,7 +32,7 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
 @synthesize done_button;
 @synthesize tab_name;
 @synthesize bal_label;
-
+@synthesize name_label;
 @synthesize connected_label;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -59,23 +59,24 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
     if([pid isEqualToString:@"D4835411-BBD6-4D68-8F67-9EC06FA085E1"]) {
         // neel's iphone
         bgImage = [UIImage imageNamed:@"nikhil.png"];
+        [name_label setText:@"Nikhil Srinivasan"];
         
     }
     
     else if([pid isEqualToString:@"8CE045FB-BD29-4076-A161-850307DC4174"]) {
         // nikhil's iphone
         bgImage = [UIImage imageNamed:@"kevin.png"];
-        
+                [name_label setText:@"Kevin Michelson"];
     }
     
     else if([pid isEqualToString:@"0229A3A7-B81C-4622-B7CA-F2C1FBC8549B"]) {
         // ipod touch
         bgImage = [UIImage imageNamed:@"tony.png"];
-        
+                [name_label setText:@"Tony Alvarez"];
     }
     
     UIButton *new_peer_button = [CustomShapes createCircleWithImage:bgImage];
-    [new_peer_button setTag:1];
+    [new_peer_button setTag:0];
     CGPoint center = CGPointMake(160, 10);
     new_peer_button.center = center;
     [self fadeIn:new_peer_button];
