@@ -154,7 +154,7 @@ static NSString * const messageKey = @"message-key"; // Message key
             NSLog(@"image = %@", bgImage);
             UIButton *new_peer_button = [CustomShapes createCircleWithImage:bgImage];
             [new_peer_button setTag:1];
-            CGPoint center = CGPointMake(196, 50 + 100*([[_session connectedPeers] count]));
+            CGPoint center = CGPointMake(50 + 100*([[_session connectedPeers] count]), 75);
             new_peer_button.center = center;
             [new_peer_button addTarget:self action:@selector(temp_circleClicked1) forControlEvents:UIControlEventTouchUpInside];
             [peerButtons insertObject:new_peer_button atIndex:0];
@@ -171,7 +171,7 @@ static NSString * const messageKey = @"message-key"; // Message key
             NSLog(@"image = %@", bgImage);
             UIButton *new_peer_button = [CustomShapes createCircleWithImage:bgImage];
             [new_peer_button setTag:2];
-            CGPoint center = CGPointMake(196, 50 + 100*([[_session connectedPeers] count]));
+            CGPoint center = CGPointMake(50 + 100*([[_session connectedPeers] count]), 75);
             new_peer_button.center = center;
             [new_peer_button addTarget:self action:@selector(temp_circleClicked2) forControlEvents:UIControlEventTouchUpInside];
             [peerButtons insertObject:new_peer_button atIndex:1];
@@ -188,7 +188,7 @@ static NSString * const messageKey = @"message-key"; // Message key
             NSLog(@"image = %@", bgImage);
             UIButton *new_peer_button = [CustomShapes createCircleWithImage:bgImage];
             [new_peer_button setTag:3];
-            CGPoint center = CGPointMake(196, 50 + 100*([[_session connectedPeers] count]));
+            CGPoint center = CGPointMake(50 + 100*([[_session connectedPeers] count]), 75);
             new_peer_button.center = center;
             [new_peer_button addTarget:self action:@selector(temp_circleClicked3) forControlEvents:UIControlEventTouchUpInside];
             [peerButtons insertObject:new_peer_button atIndex:2];

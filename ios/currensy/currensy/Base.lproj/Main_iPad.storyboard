@@ -7,8 +7,8 @@
         <!--Navigation Controller-->
         <scene sceneID="i0i-tR-wag">
             <objects>
-                <navigationController definesPresentationContext="YES" id="A9f-tX-9AE" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                <navigationController definesPresentationContext="YES" navigationBarHidden="YES" id="A9f-tX-9AE" sceneMemberID="viewController">
+                    <nil key="simulatedTopBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QPG-WF-qS6">
                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="44"/>
@@ -197,6 +197,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="r8D-76-8vA"/>
+        <segue reference="qhx-tQ-k91"/>
     </inferredMetricsTieBreakers>
 </document>
