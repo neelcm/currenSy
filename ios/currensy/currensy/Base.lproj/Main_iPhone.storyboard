@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="883" y="833"/>
         </scene>
-        <!--Peer Browser View Controller - Curren$y Card-->
+        <!--Peer Browser View Controller - Curren$y-->
         <scene sceneID="bvN-HD-0Cw">
             <objects>
                 <viewController id="Hab-Zv-I8z" customClass="PeerBrowserViewController" sceneMemberID="viewController">
@@ -96,7 +96,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow.png" translatesAutoresizingMaskIntoConstraints="NO" id="n3L-eE-Sl7">
-                                        <rect key="frame" x="147" y="62" width="27" height="56"/>
+                                        <rect key="frame" x="147" y="41" width="27" height="56"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
@@ -109,8 +109,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMw-Ig-RMD">
-                                <rect key="frame" x="139" y="114" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMw-Ig-RMD">
+                                <rect key="frame" x="89" y="114" width="143" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -119,7 +119,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Curren$y Card" id="wMk-Fk-kaU"/>
+                    <navigationItem key="navigationItem" title="Curren$y" id="wMk-Fk-kaU"/>
                     <connections>
                         <outlet property="connected_label" destination="TaI-wf-se0" id="sET-h9-qeE"/>
                         <outlet property="name_label" destination="bMw-Ig-RMD" id="dcC-9g-ZTY"/>

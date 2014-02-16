@@ -102,7 +102,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="neel_circle.png" translatesAutoresizingMaskIntoConstraints="NO" id="toy-A2-eFF">
                                 <rect key="frame" x="947" y="26" width="37" height="37"/>
