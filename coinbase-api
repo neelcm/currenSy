@@ -1,2 +1,0 @@
-NSString *coinbaseBalanceURL =
-  @"http://coinbase.com/api/v1/account/balance";
