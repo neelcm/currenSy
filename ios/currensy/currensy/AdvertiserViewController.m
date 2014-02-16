@@ -20,6 +20,8 @@ static NSString * const messageKey = @"message-key"; // Message key
 @property (nonatomic, strong) MCPeerID *peerID;
 @property (nonatomic, strong) MCSession *session;
 
+@property (nonatomic, strong) NSString *name;
+
 // This advertises the peer to nearby peers with the discovery packet
 @property (nonatomic, strong) MCNearbyServiceAdvertiser *nearbyServiceAdvertiser;
 
@@ -32,8 +34,7 @@ static NSString * const messageKey = @"message-key"; // Message key
 @synthesize nav_bar;
 @synthesize feed_table;
 @synthesize description_field;
-
-
+@synthesize invoice_table;
 @synthesize amount_field;
 @synthesize enter_button;
 
@@ -56,13 +57,12 @@ static NSString * const messageKey = @"message-key"; // Message key
     [amount_field setAlpha:0.0];
     [description_field setAlpha:0.0];
     
-   // [[self view]setUserInteractionEnabled:YES];
-    
     [super viewDidLoad];
     
     peerIDs = [[NSMutableArray alloc]init];
     peerButtons = [[NSMutableArray alloc]init];
     transactions = [[NSMutableArray alloc]init];
+    invoices = [[NSMutableArray alloc]init];
     
     for(int i = 0; i <= 3; i++) {
         [peerIDs addObject:[[MCPeerID alloc] initWithDisplayName:@"test"]];
@@ -70,8 +70,6 @@ static NSString * const messageKey = @"message-key"; // Message key
     }
     
     NSLog(@"pids = %@", peerIDs);
-    
-    
     
     pic = 0;
     clicked_button_index = 0;
@@ -144,7 +142,7 @@ static NSString * const messageKey = @"message-key"; // Message key
         invitationHandler([@YES boolValue], _session);
         
         
-        if([pid isEqualToString:@"D4835411-BBD6-4D68-8F67-9EC06FA085E1"]) {
+        if([pid isEqualToString:@"1FB6C90D-F22E-432A-A27F-9DA41CEC01D3"]) {
             
             [peerIDs insertObject:peerID atIndex:1];
 
@@ -307,6 +305,7 @@ static NSString * const messageKey = @"message-key"; // Message key
 -(void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state {
     if(state == MCSessionStateNotConnected) {
         int index = [peerIDs indexOfObject:peerID];
+        if(index <= [peerButtons count])
         [self fadeOut:[peerButtons objectAtIndex:index - 1]];
     }
     
@@ -349,15 +348,17 @@ static NSString * const messageKey = @"message-key"; // Message key
         NSLog(@"removed button from superview");
     }];
     
+    NSLog(@"peer buttons =%@", peerButtons);
+    
 }
 
 - (IBAction)enter_clicked:(id)sender {
     
     // dismiss keyboard
-    [amount_field resignFirstResponder];
-    [description_field resignFirstResponder];
+   // [amount_field resignFirstResponder];
+  //  [description_field resignFirstResponder];
     
-    // make the transaction
+       // make the transaction
 
     NSError *error;
     NSString *msg = [amount_field text];
@@ -365,32 +366,158 @@ static NSString * const messageKey = @"message-key"; // Message key
     
     NSLog(@"pids again = %@", peerIDs);
     
-    [_session sendData:[msg dataUsingEncoding:NSUTF8StringEncoding] toPeers:[NSArray arrayWithObject:[peerIDs objectAtIndex:clicked_button_index]] withMode:MCSessionSendDataReliable error:&error];
+  //  [_session sendData:[msg dataUsingEncoding:NSUTF8StringEncoding] toPeers:[NSArray arrayWithObject:[peerIDs objectAtIndex:clicked_button_index]] withMode:MCSessionSendDataReliable error:&error];
     
     if(error) NSLog(@"the error = %@", error);
     
     
-    NSString *name = @"";
+    _name = @"";
     
     if(clicked_button_index == 1) {
-        name = @"Nikhil Srinivasan";
+        _name = @"Nikhil Srinivasan";
     }
     else if(clicked_button_index == 2) {
-        name = @"Kevin Brenner";
+        _name = @"Kevin Michelson";
     }
     else if(clicked_button_index == 3) {
-        name = @"Tony Puente";
+        _name = @"Tony Alvarez";
     }
     
-    NSArray *info = [[NSArray alloc]initWithObjects:name, [description_field text], [NSDate date], nil];
+  //  NSArray *info = [[NSArray alloc]initWithObjects:name, [description_field text], [NSDate date], nil];
     
-    [transactions addObject:info];
+    NSArray *info = [[NSArray alloc]initWithObjects:[description_field text], [amount_field text], nil];
     
-    // dismiss the circle
-    [self fadeOut:[peerButtons objectAtIndex:clicked_button_index - 1]];
+    //[transactions addObject:info];
+    
+    [invoices addObject:info];
+    NSLog(@"invoices = %@", invoices);
+    [invoice_table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    // clear fields
+    [amount_field setText:@""];
+    [description_field setText:@""];
     
     [amount_field setText:@""];
     [description_field setText:@""];
+    
+    // update the invoice table
+    
+    
+    
+    
+   // [feed_table reloadData];
+   // [feed_table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    [amount_field becomeFirstResponder];
+
+}
+
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    if(tableView == feed_table) {
+    return 1;
+    }
+    
+    else {
+        return 1;
+    }
+    
+    return NSIntegerMin;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    if(tableView == feed_table) {
+        return [transactions count];
+    }
+    
+    else {
+        return [invoices count];
+    }
+    
+    return NSIntegerMin;
+
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSLog(@"%d", tableView == feed_table);
+    
+    if(tableView == feed_table) {
+        
+        
+        UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+        
+        // name total date
+        
+        NSArray *info = [transactions objectAtIndex:[indexPath row]];
+        
+        NSDate *date = [info objectAtIndex:2];
+        
+        NSString *dateString = [NSDateFormatter localizedStringFromDate:date
+                                                              dateStyle:NSDateFormatterShortStyle
+                                                              timeStyle:NSDateFormatterShortStyle];
+        
+        [[cell textLabel]setText:[info objectAtIndex:0]];
+        
+        NSString *sublabel = [NSString stringWithFormat:@"%@ - %@", [info objectAtIndex:1], dateString];
+        
+        [[cell detailTextLabel]setText:sublabel];
+        
+        return cell;
+    }
+    
+    else {
+        
+        NSLog(@"hallo");
+        
+        UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+        
+        // get the info for this row [description, amount]
+        NSArray *info = [invoices objectAtIndex:[indexPath row]];
+        
+        NSString *label = [NSString stringWithFormat:@"%@ - %@", [info objectAtIndex:0], [info objectAtIndex:1]];
+        
+        [[cell textLabel]setText:label];
+        
+        return cell;
+    }
+    
+    return [[UITableViewCell alloc]init];
+    
+}
+
+
+
+
+
+- (IBAction)done_clicked:(id)sender {
+    
+    int total = 0;
+    
+    // find totals
+    for(int i = 0; i < [invoices count]; i++) {
+        total += [((NSNumber *)[[invoices objectAtIndex:i]objectAtIndex:1])intValue];
+    }
+    
+    NSArray *info = [[NSArray alloc]initWithObjects:_name, [NSNumber numberWithInt:total], [NSDate date], nil];
+
+    
+    [transactions addObject:info];
+    
+    // add invoices to the expanding list
+    invoices = [[NSMutableArray alloc]init];
+    
+    
+    NSLog(@"invoices = %@", invoices);
+    
+[invoice_table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    
+    [feed_table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+
+    // hidefields/button
     
     [UIView animateWithDuration:0.3 animations:^{
         amount_field.alpha = 0;
@@ -401,45 +528,26 @@ static NSString * const messageKey = @"message-key"; // Message key
         
     }];
     
+    int tag_to_delete = 0;
     
-   // [feed_table reloadData];
-    [feed_table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    if([_name isEqualToString:@"Nikhil Srinivasan"]) {
+        tag_to_delete = 1;
+    }
+    else if([_name isEqualToString:@"Kevin Michelson"]) {
+        tag_to_delete = 2;
+    }
+    else if([_name isEqualToString:@"Tony Alvarez"]) {
+        tag_to_delete = 3;
+    }
+    
+    // dismiss the circle
+    for(int i = 0; i < [peerButtons count]; i++) {
+        if([[peerButtons objectAtIndex:i]tag] == tag_to_delete) {
+            [self fadeOut:[peerButtons objectAtIndex:i]];
+        }
+    }
+
+    
 
 }
-
-
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [transactions count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-    
-    NSArray *info = [transactions objectAtIndex:[indexPath row]];
-    
-    NSDate *date = [info objectAtIndex:2];
-    
-    NSString *dateString = [NSDateFormatter localizedStringFromDate:date
-                                   dateStyle:NSDateFormatterShortStyle
-                                   timeStyle:NSDateFormatterShortStyle];
-    
-    [[cell textLabel]setText:[info objectAtIndex:0]];
-    [[cell detailTextLabel]setText:[[[info objectAtIndex:1] stringByAppendingString:@"     "]stringByAppendingString:dateString]];
-    
-    
-    
-    return cell;
-    
-}
-
-
-
-
-
 @end

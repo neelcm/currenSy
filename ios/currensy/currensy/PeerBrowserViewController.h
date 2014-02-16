@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIView *peers_view;
 @property (weak, nonatomic) IBOutlet UILabel *tab_name;
 @property (weak, nonatomic) IBOutlet UILabel *bal_label;
+@property (weak, nonatomic) IBOutlet UIImageView *arrow;
 
 @property (weak, nonatomic) IBOutlet UIButton *done_button;
 - (IBAction)enter_clicked:(id)sender;
