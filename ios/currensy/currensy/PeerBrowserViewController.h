@@ -22,6 +22,7 @@
     NSMutableArray *peer_slots; // "Slots" in the 3x3 grid for circles to populate
     
 }
+@property (weak, nonatomic) IBOutlet UILabel *name_label;
 
 @property (weak, nonatomic) IBOutlet UIView *peers_view;
 @property (weak, nonatomic) IBOutlet UILabel *tab_name;

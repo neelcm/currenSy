@@ -47,11 +47,38 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
 - (void)viewDidLoad
 {
     
-    NSLog(@"%@", [[[UIDevice currentDevice]identifierForVendor] UUIDString]);
+    NSString *pid = [[[UIDevice currentDevice]identifierForVendor] UUIDString];
+    
     
     [super viewDidLoad];
     
     connected_label.alpha = 0;
+    
+    UIImage *bgImage;
+    
+    if([pid isEqualToString:@"D4835411-BBD6-4D68-8F67-9EC06FA085E1"]) {
+        // neel's iphone
+        bgImage = [UIImage imageNamed:@"nikhil.png"];
+        
+    }
+    
+    else if([pid isEqualToString:@"8CE045FB-BD29-4076-A161-850307DC4174"]) {
+        // nikhil's iphone
+        bgImage = [UIImage imageNamed:@"kevin.png"];
+        
+    }
+    
+    else if([pid isEqualToString:@"0229A3A7-B81C-4622-B7CA-F2C1FBC8549B"]) {
+        // ipod touch
+        bgImage = [UIImage imageNamed:@"tony.png"];
+        
+    }
+    
+    UIButton *new_peer_button = [CustomShapes createCircleWithImage:bgImage];
+    [new_peer_button setTag:1];
+    CGPoint center = CGPointMake(160, 10);
+    new_peer_button.center = center;
+    [self fadeIn:new_peer_button];
     
     
     // Initialize arrays
@@ -64,7 +91,6 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
     
     // Set the id of the host
     
-    NSString *pid = [[[UIDevice currentDevice]identifierForVendor] UUIDString];
     
     hostID = [[MCPeerID alloc]initWithDisplayName:pid];
     
