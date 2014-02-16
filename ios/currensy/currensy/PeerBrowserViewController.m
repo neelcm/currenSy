@@ -190,6 +190,7 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
     [UIView animateWithDuration:0.75
                      animations:^(void) {
                          connected_label.alpha = 1;
+                         arrow.alpha = 1;
                      }
                      completion:^(BOOL finished){
                          NSLog(@"animation finished");
@@ -335,7 +336,6 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
     [peers_view addSubview:button];
     [UIView animateWithDuration:0.3 animations:^{
         button.alpha = 1;
-        arrow.alpha = 1;
     } completion: ^(BOOL finished) {
         // Auto invite the peer
        // [self circleWasClicked:button];
