@@ -10,6 +10,6 @@
 
 @interface CoinbaseAPI : NSObject
 
-+(void)getDataCoinbaseAuth:(NSString *)
++(void)getCoinbaseAuth: (NSString *) authCode clientKey:(NSString *)clientKey clientSecret:(NSString *)clientSecret;
 
 @end
