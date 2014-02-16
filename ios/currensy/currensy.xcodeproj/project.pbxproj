@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2050B28818AF9A6200C2BD39 /* dave.png in Resources */ = {isa = PBXBuildFile; fileRef = 2050B28218AF9A6200C2BD39 /* dave.png */; };
 		2050B28918AF9A6200C2BD39 /* kortina.png in Resources */ = {isa = PBXBuildFile; fileRef = 2050B28418AF9A6200C2BD39 /* kortina.png */; };
 		2050B28A18AF9A6200C2BD39 /* nikhil.png in Resources */ = {isa = PBXBuildFile; fileRef = 2050B28618AF9A6200C2BD39 /* nikhil.png */; };
 		2057114A18AF4B21001D0033 /* neel.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057114C18AF4B21001D0033 /* neel.png */; };
@@ -46,7 +45,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2050B28318AF9A6200C2BD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/dave.png; sourceTree = "<group>"; };
 		2050B28518AF9A6200C2BD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/kortina.png; sourceTree = "<group>"; };
 		2050B28718AF9A6200C2BD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/nikhil.png; sourceTree = "<group>"; };
 		2057114B18AF4B21001D0033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/neel.png; sourceTree = "<group>"; };
@@ -59,7 +57,7 @@
 		20674B4818AF2FC200F7629A /* CustomShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomShapes.h; sourceTree = "<group>"; };
 		20674B4D18AF364E00F7629A /* AdvertiserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertiserViewController.m; sourceTree = "<group>"; };
 		20674B4E18AF364E00F7629A /* AdvertiserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertiserViewController.h; sourceTree = "<group>"; };
-		3136D95E18B050BC00450D5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = "Base.lproj/ipad-home@2x.png"; sourceTree = "<group>"; };
+		3136D95E18B050BC00450D5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/ipad-home@2x.png"; sourceTree = "<group>"; };
 		31B64FAB18AF28C300BF7769 /* currensy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = currensy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B64FAE18AF28C300BF7769 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		31B64FB018AF28C300BF7769 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -132,7 +130,6 @@
 			isa = PBXGroup;
 			children = (
 				3136D95F18B050BC00450D5F /* ipad-home@2x.png */,
-				2050B28218AF9A6200C2BD39 /* dave.png */,
 				2050B28418AF9A6200C2BD39 /* kortina.png */,
 				2050B28618AF9A6200C2BD39 /* nikhil.png */,
 				2057115518AF4BD0001D0033 /* Circle-ring-red.png */,
@@ -300,7 +297,6 @@
 				2050B28918AF9A6200C2BD39 /* kortina.png in Resources */,
 				31B64FC518AF28C300BF7769 /* Main_iPad.storyboard in Resources */,
 				2057115318AF4BD0001D0033 /* Circle-ring-red.png in Resources */,
-				2050B28818AF9A6200C2BD39 /* dave.png in Resources */,
 				2057114A18AF4B21001D0033 /* neel.png in Resources */,
 				3136D95D18B050BC00450D5F /* ipad-home@2x.png in Resources */,
 				2057115618AF4BD3001D0033 /* Circle-ring-green.png in Resources */,
@@ -355,14 +351,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2050B28218AF9A6200C2BD39 /* dave.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2050B28318AF9A6200C2BD39 /* Base */,
-			);
-			name = dave.png;
-			sourceTree = "<group>";
-		};
 		2050B28418AF9A6200C2BD39 /* kortina.png */ = {
 			isa = PBXVariantGroup;
 			children = (
