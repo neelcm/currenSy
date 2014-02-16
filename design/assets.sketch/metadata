@@ -13,12 +13,10 @@
 		<string>HelveticaNeue</string>
 		<string>HelveticaNeue</string>
 		<string>HelveticaNeue-Medium</string>
-		<string>Helvetica</string>
-		<string>Helvetica</string>
-		<string>Helvetica</string>
+		<string>AvenirNext-Medium</string>
 	</array>
 	<key>length</key>
-	<integer>61037</integer>
+	<integer>46699</integer>
 	<key>version</key>
 	<integer>18</integer>
 </dict>
