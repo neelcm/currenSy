@@ -121,6 +121,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Curren$y" id="wMk-Fk-kaU"/>
                     <connections>
+                        <outlet property="arrow" destination="n3L-eE-Sl7" id="rDC-ck-XIu"/>
                         <outlet property="connected_label" destination="TaI-wf-se0" id="sET-h9-qeE"/>
                         <outlet property="name_label" destination="bMw-Ig-RMD" id="dcC-9g-ZTY"/>
                         <outlet property="peers_view" destination="Rz9-3w-Dra" id="yaM-lq-iss"/>

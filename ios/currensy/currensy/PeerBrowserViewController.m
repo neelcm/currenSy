@@ -34,6 +34,7 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
 @synthesize bal_label;
 @synthesize name_label;
 @synthesize connected_label;
+@synthesize arrow;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,6 +48,8 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
 - (void)viewDidLoad
 {
     
+    arrow.alpha = 0;
+    
     NSString *pid = [[[UIDevice currentDevice]identifierForVendor] UUIDString];
     
     
@@ -56,7 +59,9 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
     
     UIImage *bgImage;
     
-    if([pid isEqualToString:@"D4835411-BBD6-4D68-8F67-9EC06FA085E1"]) {
+    NSLog(@"pid = %@", pid);
+    
+    if([pid isEqualToString:@"1FB6C90D-F22E-432A-A27F-9DA41CEC01D3"]) {
         // neel's iphone
         bgImage = [UIImage imageNamed:@"nikhil.png"];
         [name_label setText:@"Nikhil Srinivasan"];
@@ -94,9 +99,6 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
     
     
     hostID = [[MCPeerID alloc]initWithDisplayName:pid];
-    
-    
-    
     
     _peerBrowser = [[MCNearbyServiceBrowser alloc]initWithPeer:hostID serviceType:serviceType];
     _peerBrowser.delegate = self;
@@ -333,6 +335,7 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
     [peers_view addSubview:button];
     [UIView animateWithDuration:0.3 animations:^{
         button.alpha = 1;
+        arrow.alpha = 1;
     } completion: ^(BOOL finished) {
         // Auto invite the peer
        // [self circleWasClicked:button];

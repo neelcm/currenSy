@@ -18,6 +18,10 @@
     NSMutableArray *peerIDs;
     NSMutableArray *peerButtons;
     
+    NSMutableArray *invoices;
+    NSMutableArray *invoice_list;
+    
+    
     NSMutableArray *transactions;
     
     __weak IBOutlet UITextField *payment_field;
@@ -34,6 +38,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *enter_button;
 
+@property (weak, nonatomic) IBOutlet UITableView *invoice_table;
 
 - (IBAction)enter_clicked:(id)sender;
 
@@ -41,6 +46,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *pay_button;
 @property (weak, nonatomic) IBOutlet UINavigationBar *nav_bar;
 @property (weak, nonatomic) IBOutlet UILabel *bal_label;
+- (IBAction)done_clicked:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITableView *feed_table;
 

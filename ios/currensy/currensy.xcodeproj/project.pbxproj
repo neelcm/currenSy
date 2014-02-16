@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		202053A618B0B93D00A48801 /* nikhil.png in Resources */ = {isa = PBXBuildFile; fileRef = 2050B28618AF9A6200C2BD39 /* nikhil.png */; };
 		2050B28918AF9A6200C2BD39 /* kortina.png in Resources */ = {isa = PBXBuildFile; fileRef = 2050B28418AF9A6200C2BD39 /* kortina.png */; };
-		2050B28A18AF9A6200C2BD39 /* nikhil.png in Resources */ = {isa = PBXBuildFile; fileRef = 2050B28618AF9A6200C2BD39 /* nikhil.png */; };
 		2057114A18AF4B21001D0033 /* neel.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057114C18AF4B21001D0033 /* neel.png */; };
 		2057115318AF4BD0001D0033 /* Circle-ring-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057115518AF4BD0001D0033 /* Circle-ring-red.png */; };
 		2057115618AF4BD3001D0033 /* Circle-ring-green.png in Resources */ = {isa = PBXBuildFile; fileRef = 2057115818AF4BD3001D0033 /* Circle-ring-green.png */; };
@@ -60,7 +60,7 @@
 		20674B4818AF2FC200F7629A /* CustomShapes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomShapes.h; sourceTree = "<group>"; };
 		20674B4D18AF364E00F7629A /* AdvertiserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertiserViewController.m; sourceTree = "<group>"; };
 		20674B4E18AF364E00F7629A /* AdvertiserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertiserViewController.h; sourceTree = "<group>"; };
-		20BE9DD818B0879500D9E3C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file; name = Base; path = Base.lproj/arrow.png; sourceTree = "<group>"; };
+		20BE9DD818B0879500D9E3C7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/arrow.png; sourceTree = "<group>"; };
 		3136D95E18B050BC00450D5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/ipad-home@2x.png"; sourceTree = "<group>"; };
 		31B64FAB18AF28C300BF7769 /* currensy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = currensy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B64FAE18AF28C300BF7769 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -308,12 +308,12 @@
 				31B64FC518AF28C300BF7769 /* Main_iPad.storyboard in Resources */,
 				2057115318AF4BD0001D0033 /* Circle-ring-red.png in Resources */,
 				2057114A18AF4B21001D0033 /* neel.png in Resources */,
+				202053A618B0B93D00A48801 /* nikhil.png in Resources */,
 				3136D95D18B050BC00450D5F /* ipad-home@2x.png in Resources */,
 				20BE9DD718B0879500D9E3C7 /* arrow.png in Resources */,
 				2057115618AF4BD3001D0033 /* Circle-ring-green.png in Resources */,
 				31D00B4418B0844700E6E024 /* Images-2.xcassets in Resources */,
 				31B64FCA18AF28C300BF7769 /* Images.xcassets in Resources */,
-				2050B28A18AF9A6200C2BD39 /* nikhil.png in Resources */,
 				2057115918AF4BD5001D0033 /* Circle-mask.png in Resources */,
 				31B64FC218AF28C300BF7769 /* Main_iPhone.storyboard in Resources */,
 				31B64FB918AF28C300BF7769 /* InfoPlist.strings in Resources */,
