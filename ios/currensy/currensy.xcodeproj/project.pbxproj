@@ -17,8 +17,6 @@
 		20674B4918AF2FC200F7629A /* CustomShapes.m in Sources */ = {isa = PBXBuildFile; fileRef = 20674B4718AF2FC200F7629A /* CustomShapes.m */; };
 		20674B4F18AF364E00F7629A /* AdvertiserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20674B4D18AF364E00F7629A /* AdvertiserViewController.m */; };
 		3136D95D18B050BC00450D5F /* ipad-home@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3136D95F18B050BC00450D5F /* ipad-home@2x.png */; };
-		319C0CDC18B07E280029D720 /* currensy-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 319C0CDE18B07E280029D720 /* currensy-icon.png */; };
-		319C0CDF18B07E2B0029D720 /* currensy-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 319C0CE118B07E2B0029D720 /* currensy-icon@2x.png */; };
 		31B64FAF18AF28C300BF7769 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B64FAE18AF28C300BF7769 /* Foundation.framework */; };
 		31B64FB118AF28C300BF7769 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B64FB018AF28C300BF7769 /* CoreGraphics.framework */; };
 		31B64FB318AF28C300BF7769 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B64FB218AF28C300BF7769 /* UIKit.framework */; };
@@ -34,6 +32,8 @@
 		31B64FD318AF28C300BF7769 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31B64FB218AF28C300BF7769 /* UIKit.framework */; };
 		31B64FDB18AF28C300BF7769 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 31B64FD918AF28C300BF7769 /* InfoPlist.strings */; };
 		31B64FDD18AF28C300BF7769 /* currensyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 31B64FDC18AF28C300BF7769 /* currensyTests.m */; };
+		31D00B4418B0844700E6E024 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D00B4318B0844700E6E024 /* Images-2.xcassets */; };
+		31D00B4618B0845C00E6E024 /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D00B4518B0845C00E6E024 /* MultipeerConnectivity.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,8 +60,6 @@
 		20674B4D18AF364E00F7629A /* AdvertiserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvertiserViewController.m; sourceTree = "<group>"; };
 		20674B4E18AF364E00F7629A /* AdvertiserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvertiserViewController.h; sourceTree = "<group>"; };
 		3136D95E18B050BC00450D5F /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/ipad-home@2x.png"; sourceTree = "<group>"; };
-		319C0CDD18B07E280029D720 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/currensy-icon.png"; sourceTree = "<group>"; };
-		319C0CE018B07E2B0029D720 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = "Base.lproj/currensy-icon@2x.png"; sourceTree = "<group>"; };
 		31B64FAB18AF28C300BF7769 /* currensy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = currensy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31B64FAE18AF28C300BF7769 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		31B64FB018AF28C300BF7769 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -82,6 +80,8 @@
 		31B64FD818AF28C300BF7769 /* currensyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "currensyTests-Info.plist"; sourceTree = "<group>"; };
 		31B64FDA18AF28C300BF7769 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		31B64FDC18AF28C300BF7769 /* currensyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = currensyTests.m; sourceTree = "<group>"; };
+		31D00B4318B0844700E6E024 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
+		31D00B4518B0845C00E6E024 /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31D00B4618B0845C00E6E024 /* MultipeerConnectivity.framework in Frameworks */,
 				31B64FB118AF28C300BF7769 /* CoreGraphics.framework in Frameworks */,
 				31B64FB318AF28C300BF7769 /* UIKit.framework in Frameworks */,
 				31B64FAF18AF28C300BF7769 /* Foundation.framework in Frameworks */,
@@ -133,8 +134,6 @@
 		20674B4C18AF347B00F7629A /* images */ = {
 			isa = PBXGroup;
 			children = (
-				319C0CDE18B07E280029D720 /* currensy-icon.png */,
-				319C0CE118B07E2B0029D720 /* currensy-icon@2x.png */,
 				3136D95F18B050BC00450D5F /* ipad-home@2x.png */,
 				2050B28418AF9A6200C2BD39 /* kortina.png */,
 				2050B28618AF9A6200C2BD39 /* nikhil.png */,
@@ -168,6 +167,7 @@
 		31B64FAD18AF28C300BF7769 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				31D00B4518B0845C00E6E024 /* MultipeerConnectivity.framework */,
 				31B64FAE18AF28C300BF7769 /* Foundation.framework */,
 				31B64FB018AF28C300BF7769 /* CoreGraphics.framework */,
 				31B64FB218AF28C300BF7769 /* UIKit.framework */,
@@ -187,6 +187,7 @@
 				20674B4618AF2AE200F7629A /* multipeer */,
 				20674B4218AF2AB100F7629A /* ui */,
 				31B64FC918AF28C300BF7769 /* Images.xcassets */,
+				31D00B4318B0844700E6E024 /* Images-2.xcassets */,
 				31B64FB518AF28C300BF7769 /* Supporting Files */,
 			);
 			path = currensy;
@@ -301,13 +302,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2050B28918AF9A6200C2BD39 /* kortina.png in Resources */,
-				319C0CDC18B07E280029D720 /* currensy-icon.png in Resources */,
 				31B64FC518AF28C300BF7769 /* Main_iPad.storyboard in Resources */,
-				319C0CDF18B07E2B0029D720 /* currensy-icon@2x.png in Resources */,
 				2057115318AF4BD0001D0033 /* Circle-ring-red.png in Resources */,
 				2057114A18AF4B21001D0033 /* neel.png in Resources */,
 				3136D95D18B050BC00450D5F /* ipad-home@2x.png in Resources */,
 				2057115618AF4BD3001D0033 /* Circle-ring-green.png in Resources */,
+				31D00B4418B0844700E6E024 /* Images-2.xcassets in Resources */,
 				31B64FCA18AF28C300BF7769 /* Images.xcassets in Resources */,
 				2050B28A18AF9A6200C2BD39 /* nikhil.png in Resources */,
 				2057115918AF4BD5001D0033 /* Circle-mask.png in Resources */,
@@ -413,22 +413,6 @@
 				3136D95E18B050BC00450D5F /* Base */,
 			);
 			name = "ipad-home@2x.png";
-			sourceTree = "<group>";
-		};
-		319C0CDE18B07E280029D720 /* currensy-icon.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				319C0CDD18B07E280029D720 /* Base */,
-			);
-			name = "currensy-icon.png";
-			sourceTree = "<group>";
-		};
-		319C0CE118B07E2B0029D720 /* currensy-icon@2x.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				319C0CE018B07E2B0029D720 /* Base */,
-			);
-			name = "currensy-icon@2x.png";
 			sourceTree = "<group>";
 		};
 		31B64FB718AF28C300BF7769 /* InfoPlist.strings */ = {
@@ -543,7 +527,7 @@
 		31B64FE118AF28C300BF7769 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -559,7 +543,7 @@
 		31B64FE218AF28C300BF7769 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
