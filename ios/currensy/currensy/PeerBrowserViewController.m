@@ -33,6 +33,8 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
 @synthesize tab_name;
 @synthesize bal_label;
 
+@synthesize connected_label;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -44,7 +46,12 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
 
 - (void)viewDidLoad
 {
+    
+    NSLog(@"%@", [[[UIDevice currentDevice]identifierForVendor] UUIDString]);
+    
     [super viewDidLoad];
+    
+    connected_label.alpha = 0;
     
     
     // Initialize arrays
@@ -56,7 +63,13 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
     [self setSlots];
     
     // Set the id of the host
-    hostID = [[MCPeerID alloc]initWithDisplayName:@"host"];
+    
+    NSString *pid = [[[UIDevice currentDevice]identifierForVendor] UUIDString];
+    
+    hostID = [[MCPeerID alloc]initWithDisplayName:pid];
+    
+    
+    
     
     _peerBrowser = [[MCNearbyServiceBrowser alloc]initWithPeer:hostID serviceType:serviceType];
     _peerBrowser.delegate = self;
@@ -105,20 +118,7 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
 
 -(void)temp_circleClicked {
 
-    // send picture to merch
     
-    
-    
-//    
-//    
-//    [_session sendData:<#(NSData *)#> toPeers:<#(NSArray *)#> withMode:<#(MCSessionSendDataMode)#> error:<#(NSError *__autoreleasing *)#>]
-//    
-    
-    // display kb
-    
-    
-    
-    // now we hvae to go to enter clicked
     
     [_peerBrowser invitePeer:[peerIDs objectAtIndex:0] toSession:_session withContext:nil timeout:30];
     
@@ -155,15 +155,29 @@ static NSString * const tablesVCName = @"name"; // Generic name of every TableVC
     
     [self fadeIn:new_peer_button];
     
-    /*
+    
+    
+    // fade in and out merch label
     [UIView animateWithDuration:0.75
                      animations:^(void) {
-                         [[[new_peer_button subviews]objectAtIndex:0]setAlpha:0.5];
+                         connected_label.alpha = 1;
                      }
                      completion:^(BOOL finished){
                          NSLog(@"animation finished");
                      }];
-     */
+
+    
+    [UIView animateWithDuration:0.5
+                          delay:4.0
+                        options: UIViewAnimationOptionTransitionCrossDissolve
+                     animations:^(void) {
+                         connected_label.alpha = 0;
+                     }
+                     completion:^(BOOL finished){
+                        
+                         
+                     }];
+    
     
     
     [peer_buttons addObject:new_peer_button];

@@ -29,6 +29,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *done_button;
 - (IBAction)enter_clicked:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *connected_label;
 
 - (IBAction)back_button_clicked:(id)sender;
 - (IBAction)done_button_clicked:(id)sender;

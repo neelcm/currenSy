@@ -50,6 +50,8 @@ static NSString * const messageKey = @"message-key"; // Message key
 - (void)viewDidLoad
 {
     
+    NSLog(@"%@",[[UIDevice currentDevice]identifierForVendor]);
+    
     [enter_button setAlpha:0.0];
     [amount_field setAlpha:0.0];
     [description_field setAlpha:0.0];
@@ -62,6 +64,15 @@ static NSString * const messageKey = @"message-key"; // Message key
     peerButtons = [[NSMutableArray alloc]init];
     transactions = [[NSMutableArray alloc]init];
     
+    for(int i = 0; i <= 3; i++) {
+        [peerIDs addObject:[[MCPeerID alloc] initWithDisplayName:@"test"]];
+        [peerButtons addObject:[[UIButton alloc] init]];
+    }
+    
+    NSLog(@"pids = %@", peerIDs);
+    
+    
+    
     pic = 0;
     clicked_button_index = 0;
 	
@@ -73,7 +84,7 @@ static NSString * const messageKey = @"message-key"; // Message key
     // Initialize the peer
     _peerID = [[MCPeerID alloc]initWithDisplayName:@"peer"];
     
-    [peerIDs addObject:_peerID];
+    [peerIDs insertObject:_peerID atIndex:0];
     
     // Initialize the session
     _session = [[MCSession alloc]initWithPeer:_peerID];
@@ -108,11 +119,10 @@ static NSString * const messageKey = @"message-key"; // Message key
     
     if(![peerIDs containsObject:peerID]) {
         
-        [peerIDs addObject:peerID];
-        
         NSLog(@"invite from %@", peerID);
         
-        pic++;
+        NSString *pid = [peerID displayName];
+        
         // Background processing
         
         // Copy & store the invitation handler
@@ -134,39 +144,54 @@ static NSString * const messageKey = @"message-key"; // Message key
         invitationHandler([@YES boolValue], _session);
         
         
-        if(pic == 1) {
+        if([pid isEqualToString:@"D4835411-BBD6-4D68-8F67-9EC06FA085E1"]) {
+            
+            [peerIDs insertObject:peerID atIndex:1];
+
+            // neel's iphone
+            
             UIImage *bgImage = [UIImage imageNamed:@"nikhil.png"];
             NSLog(@"image = %@", bgImage);
             UIButton *new_peer_button = [CustomShapes createCircleWithImage:bgImage];
             [new_peer_button setTag:1];
-            CGPoint center = CGPointMake(196, 50);
+            CGPoint center = CGPointMake(196, 50 + 100*([[_session connectedPeers] count]));
             new_peer_button.center = center;
             [new_peer_button addTarget:self action:@selector(temp_circleClicked1) forControlEvents:UIControlEventTouchUpInside];
-            [peerButtons addObject:new_peer_button];
+            [peerButtons insertObject:new_peer_button atIndex:0];
             [self fadeIn:new_peer_button];
         }
         
-        else if(pic == 2) {
+        else if([pid isEqualToString:@"8CE045FB-BD29-4076-A161-850307DC4174"]) {
+            [peerIDs insertObject:peerID atIndex:2];
+
+            
+            // nikhil's iphone
+            
             UIImage *bgImage = [UIImage imageNamed:@"kevin.png"];
             NSLog(@"image = %@", bgImage);
             UIButton *new_peer_button = [CustomShapes createCircleWithImage:bgImage];
             [new_peer_button setTag:2];
-            CGPoint center = CGPointMake(196, 150);
+            CGPoint center = CGPointMake(196, 50 + 100*([[_session connectedPeers] count]));
             new_peer_button.center = center;
             [new_peer_button addTarget:self action:@selector(temp_circleClicked2) forControlEvents:UIControlEventTouchUpInside];
-            [peerButtons addObject:new_peer_button];
+            [peerButtons insertObject:new_peer_button atIndex:1];
             [self fadeIn:new_peer_button];
         }
         
-        else if(pic == 3) {
+        else if([pid isEqualToString:@"0229A3A7-B81C-4622-B7CA-F2C1FBC8549B"]) {
+            [peerIDs insertObject:peerID atIndex:3];
+
+            
+            // ipod touch
+            
             UIImage *bgImage = [UIImage imageNamed:@"tony.png"];
             NSLog(@"image = %@", bgImage);
             UIButton *new_peer_button = [CustomShapes createCircleWithImage:bgImage];
             [new_peer_button setTag:3];
-            CGPoint center = CGPointMake(196, 250);
+            CGPoint center = CGPointMake(196, 50 + 100*([[_session connectedPeers] count]));
             new_peer_button.center = center;
             [new_peer_button addTarget:self action:@selector(temp_circleClicked3) forControlEvents:UIControlEventTouchUpInside];
-            [peerButtons addObject:new_peer_button];
+            [peerButtons insertObject:new_peer_button atIndex:2];
             [self fadeIn:new_peer_button];
         }
     }
@@ -177,66 +202,88 @@ static NSString * const messageKey = @"message-key"; // Message key
 
 -(void)temp_circleClicked1 {
         // bring up a keyboard
-    [amount_field becomeFirstResponder];
-    
-    clicked_button_index = 1;
-    
-    // fade in field and enter button
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        amount_field.alpha = 1;
-        enter_button.alpha = 1;
-        description_field.alpha = 1;
-    } completion: ^(BOOL finished) {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        clicked_button_index = 1;
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [amount_field becomeFirstResponder];
+
+            // fade in field and enter button
+            
+            [UIView animateWithDuration:0.3 animations:^{
+                amount_field.alpha = 1;
+                enter_button.alpha = 1;
+                description_field.alpha = 1;
+            } completion: ^(BOOL finished) {
+                
+                
+            }];
+        });
         
-        
-    }];
+    });
     
-    pic--;
+    
     
 }
 
 
 -(void)temp_circleClicked2 {
     // bring up a keyboard
-    [amount_field becomeFirstResponder];
-    
-    clicked_button_index = 2;
-    
-    // fade in field and enter button
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        amount_field.alpha = 1;
-        enter_button.alpha = 1;
-        description_field.alpha = 1;
-    } completion: ^(BOOL finished) {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         
+        clicked_button_index = 2;
+
         
-    }];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [amount_field becomeFirstResponder];
+            
+            // fade in field and enter button
+            
+            [UIView animateWithDuration:0.3 animations:^{
+                amount_field.alpha = 1;
+                enter_button.alpha = 1;
+                description_field.alpha = 1;
+            } completion: ^(BOOL finished) {
+                
+                
+            }];
+        });
+        
+    });
     
-    pic--;
+   
     
 }
 
 
 -(void)temp_circleClicked3 {
     // bring up a keyboard
-    [amount_field becomeFirstResponder];
-    
-    clicked_button_index = 3;
-    
-    // fade in field and enter button
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        amount_field.alpha = 1;
-        enter_button.alpha = 1;
-        description_field.alpha = 1;
-    } completion: ^(BOOL finished) {
+   
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         
+        clicked_button_index = 3;
         
-    }];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [amount_field becomeFirstResponder];
+            
+            // fade in field and enter button
+            
+            [UIView animateWithDuration:0.3 animations:^{
+                amount_field.alpha = 1;
+                enter_button.alpha = 1;
+                description_field.alpha = 1;
+            } completion: ^(BOOL finished) {
+                
+                
+            }];
+            
+        });
+        
+    });
     
-    pic--;
     
 }
 
@@ -258,7 +305,11 @@ static NSString * const messageKey = @"message-key"; // Message key
 }
 
 -(void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state {
-    //NSLog(@"peer changed state");
+    if(state == MCSessionStateNotConnected) {
+        int index = [peerIDs indexOfObject:peerID];
+        [self fadeOut:[peerButtons objectAtIndex:index - 1]];
+    }
+    
 }
 
 -(void)session:(MCSession *)session didReceiveStream:(NSInputStream *)stream withName:(NSString *)streamName fromPeer:(MCPeerID *)peerID {
@@ -311,6 +362,9 @@ static NSString * const messageKey = @"message-key"; // Message key
     NSError *error;
     NSString *msg = [amount_field text];
     // notify the peer
+    
+    NSLog(@"pids again = %@", peerIDs);
+    
     [_session sendData:[msg dataUsingEncoding:NSUTF8StringEncoding] toPeers:[NSArray arrayWithObject:[peerIDs objectAtIndex:clicked_button_index]] withMode:MCSessionSendDataReliable error:&error];
     
     if(error) NSLog(@"the error = %@", error);
@@ -383,4 +437,9 @@ static NSString * const messageKey = @"message-key"; // Message key
     return cell;
     
 }
+
+
+
+
+
 @end
