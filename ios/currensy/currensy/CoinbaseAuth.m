@@ -64,8 +64,13 @@ NSString *APISecret = @"bPEhQ3uOVK9EEr9ht6Fx42nKCxKlW5Ux";
     
 }
 
+
 +(void)testLoginWithAPIKeySecret {
-    NSString *url = [NSString stringWithFormat:@"coinbase.com/api/v1/account/balance", access_token];
+    
+    NSUUID *uuid = [[NSUUID alloc]initWithUUIDString:APISecret];
+    
+    
+    NSString *url = [NSString stringWithFormat:@"coinbase.com/api/v1/account/balance?ACCESS_KEY=%@&ACCESS_SIGNATURE=%@&ACCESS_NONCE=%@", APIKey, [uuid UUIDString], @"1"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
                                                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
