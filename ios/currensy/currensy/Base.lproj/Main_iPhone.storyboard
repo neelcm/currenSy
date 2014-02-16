@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="883" y="833"/>
         </scene>
-        <!--Peer Browser View Controller-->
+        <!--Peer Browser View Controller - Curren$y Card-->
         <scene sceneID="bvN-HD-0Cw">
             <objects>
                 <viewController id="Hab-Zv-I8z" customClass="PeerBrowserViewController" sceneMemberID="viewController">
@@ -92,14 +92,24 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rz9-3w-Dra">
-                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <rect key="frame" x="0.0" y="184" width="320" height="384"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Connected to Merchant" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TaI-wf-se0">
+                                        <rect key="frame" x="69" y="343" width="182" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wMk-Fk-kaU"/>
+                    <navigationItem key="navigationItem" title="Curren$y Card" id="wMk-Fk-kaU"/>
                     <connections>
+                        <outlet property="connected_label" destination="TaI-wf-se0" id="sET-h9-qeE"/>
                         <outlet property="peers_view" destination="Rz9-3w-Dra" id="yaM-lq-iss"/>
                     </connections>
                 </viewController>
@@ -114,6 +124,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Bhh-hj-MbS"/>
+        <segue reference="0Tn-VK-Uat"/>
     </inferredMetricsTieBreakers>
 </document>

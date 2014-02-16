@@ -31,6 +31,7 @@ static NSString * const messageKey = @"message-key"; // Message key
 @synthesize bal_label;
 @synthesize nav_bar;
 @synthesize feed_table;
+@synthesize description_field;
 
 
 @synthesize amount_field;
@@ -49,16 +50,31 @@ static NSString * const messageKey = @"message-key"; // Message key
 - (void)viewDidLoad
 {
     
+    NSLog(@"%@",[[UIDevice currentDevice]identifierForVendor]);
+    
     [enter_button setAlpha:0.0];
     [amount_field setAlpha:0.0];
+    [description_field setAlpha:0.0];
     
    // [[self view]setUserInteractionEnabled:YES];
     
     [super viewDidLoad];
     
     peerIDs = [[NSMutableArray alloc]init];
+    peerButtons = [[NSMutableArray alloc]init];
+    transactions = [[NSMutableArray alloc]init];
+    
+    for(int i = 0; i <= 3; i++) {
+        [peerIDs addObject:[[MCPeerID alloc] initWithDisplayName:@"test"]];
+        [peerButtons addObject:[[UIButton alloc] init]];
+    }
+    
+    NSLog(@"pids = %@", peerIDs);
+    
+    
     
     pic = 0;
+    clicked_button_index = 0;
 	
     // Do any additional setup after loading the view.
     
@@ -67,6 +83,8 @@ static NSString * const messageKey = @"message-key"; // Message key
     
     // Initialize the peer
     _peerID = [[MCPeerID alloc]initWithDisplayName:@"peer"];
+    
+    [peerIDs insertObject:_peerID atIndex:0];
     
     // Initialize the session
     _session = [[MCSession alloc]initWithPeer:_peerID];
@@ -100,9 +118,11 @@ static NSString * const messageKey = @"message-key"; // Message key
 -(void)advertiser:(MCNearbyServiceAdvertiser *)advertiser didReceiveInvitationFromPeer:(MCPeerID *)peerID withContext:(NSData *)context invitationHandler:(void (^)(BOOL, MCSession *))invitationHandler {
     
     if(![peerIDs containsObject:peerID]) {
+        
         NSLog(@"invite from %@", peerID);
         
-        pic++;
+        NSString *pid = [peerID displayName];
+        
         // Background processing
         
         // Copy & store the invitation handler
@@ -124,36 +144,54 @@ static NSString * const messageKey = @"message-key"; // Message key
         invitationHandler([@YES boolValue], _session);
         
         
-        if(pic == 1) {
+        if([pid isEqualToString:@"D4835411-BBD6-4D68-8F67-9EC06FA085E1"]) {
+            
+            [peerIDs insertObject:peerID atIndex:1];
+
+            // neel's iphone
+            
             UIImage *bgImage = [UIImage imageNamed:@"nikhil.png"];
             NSLog(@"image = %@", bgImage);
             UIButton *new_peer_button = [CustomShapes createCircleWithImage:bgImage];
             [new_peer_button setTag:1];
-            CGPoint center = CGPointMake(196, 50);
+            CGPoint center = CGPointMake(196, 50 + 100*([[_session connectedPeers] count]));
             new_peer_button.center = center;
-            [new_peer_button addTarget:self action:@selector(temp_circleClicked) forControlEvents:UIControlEventTouchUpInside];
+            [new_peer_button addTarget:self action:@selector(temp_circleClicked1) forControlEvents:UIControlEventTouchUpInside];
+            [peerButtons insertObject:new_peer_button atIndex:0];
             [self fadeIn:new_peer_button];
         }
         
-        else if(pic == 2) {
-            UIImage *bgImage = [UIImage imageNamed:@"dave.png"];
+        else if([pid isEqualToString:@"8CE045FB-BD29-4076-A161-850307DC4174"]) {
+            [peerIDs insertObject:peerID atIndex:2];
+
+            
+            // nikhil's iphone
+            
+            UIImage *bgImage = [UIImage imageNamed:@"kevin.png"];
             NSLog(@"image = %@", bgImage);
             UIButton *new_peer_button = [CustomShapes createCircleWithImage:bgImage];
-            [new_peer_button setTag:1];
-            CGPoint center = CGPointMake(196, 150);
+            [new_peer_button setTag:2];
+            CGPoint center = CGPointMake(196, 50 + 100*([[_session connectedPeers] count]));
             new_peer_button.center = center;
-            [new_peer_button addTarget:self action:@selector(temp_circleClicked) forControlEvents:UIControlEventTouchUpInside];
+            [new_peer_button addTarget:self action:@selector(temp_circleClicked2) forControlEvents:UIControlEventTouchUpInside];
+            [peerButtons insertObject:new_peer_button atIndex:1];
             [self fadeIn:new_peer_button];
         }
         
-        else if(pic == 3) {
-            UIImage *bgImage = [UIImage imageNamed:@"kortina.png"];
+        else if([pid isEqualToString:@"0229A3A7-B81C-4622-B7CA-F2C1FBC8549B"]) {
+            [peerIDs insertObject:peerID atIndex:3];
+
+            
+            // ipod touch
+            
+            UIImage *bgImage = [UIImage imageNamed:@"tony.png"];
             NSLog(@"image = %@", bgImage);
             UIButton *new_peer_button = [CustomShapes createCircleWithImage:bgImage];
-            [new_peer_button setTag:1];
-            CGPoint center = CGPointMake(196, 250);
+            [new_peer_button setTag:3];
+            CGPoint center = CGPointMake(196, 50 + 100*([[_session connectedPeers] count]));
             new_peer_button.center = center;
-            [new_peer_button addTarget:self action:@selector(temp_circleClicked) forControlEvents:UIControlEventTouchUpInside];
+            [new_peer_button addTarget:self action:@selector(temp_circleClicked3) forControlEvents:UIControlEventTouchUpInside];
+            [peerButtons insertObject:new_peer_button atIndex:2];
             [self fadeIn:new_peer_button];
         }
     }
@@ -162,21 +200,89 @@ static NSString * const messageKey = @"message-key"; // Message key
     
 }
 
--(void)temp_circleClicked {
+-(void)temp_circleClicked1 {
         // bring up a keyboard
-    [amount_field becomeFirstResponder];
-    
-    
-    
-    // fade in field and enter button
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        amount_field.alpha = 1;
-        enter_button.alpha = 1;
-    } completion: ^(BOOL finished) {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        clicked_button_index = 1;
+
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [amount_field becomeFirstResponder];
+
+            // fade in field and enter button
+            
+            [UIView animateWithDuration:0.3 animations:^{
+                amount_field.alpha = 1;
+                enter_button.alpha = 1;
+                description_field.alpha = 1;
+            } completion: ^(BOOL finished) {
+                
+                
+            }];
+        });
         
+    });
+    
+    
+    
+}
+
+
+-(void)temp_circleClicked2 {
+    // bring up a keyboard
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         
-    }];
+        clicked_button_index = 2;
+
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [amount_field becomeFirstResponder];
+            
+            // fade in field and enter button
+            
+            [UIView animateWithDuration:0.3 animations:^{
+                amount_field.alpha = 1;
+                enter_button.alpha = 1;
+                description_field.alpha = 1;
+            } completion: ^(BOOL finished) {
+                
+                
+            }];
+        });
+        
+    });
+    
+   
+    
+}
+
+
+-(void)temp_circleClicked3 {
+    // bring up a keyboard
+   
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        
+        clicked_button_index = 3;
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [amount_field becomeFirstResponder];
+            
+            // fade in field and enter button
+            
+            [UIView animateWithDuration:0.3 animations:^{
+                amount_field.alpha = 1;
+                enter_button.alpha = 1;
+                description_field.alpha = 1;
+            } completion: ^(BOOL finished) {
+                
+                
+            }];
+            
+        });
+        
+    });
     
     
 }
@@ -199,7 +305,11 @@ static NSString * const messageKey = @"message-key"; // Message key
 }
 
 -(void)session:(MCSession *)session peer:(MCPeerID *)peerID didChangeState:(MCSessionState)state {
-    //NSLog(@"peer changed state");
+    if(state == MCSessionStateNotConnected) {
+        int index = [peerIDs indexOfObject:peerID];
+        [self fadeOut:[peerButtons objectAtIndex:index - 1]];
+    }
+    
 }
 
 -(void)session:(MCSession *)session didReceiveStream:(NSInputStream *)stream withName:(NSString *)streamName fromPeer:(MCPeerID *)peerID {
@@ -213,124 +323,7 @@ static NSString * const messageKey = @"message-key"; // Message key
     [[self navigationController]popViewControllerAnimated:YES];
 }
 
-- (IBAction)pay_clicked:(id)sender {
-    
-    
-    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        // Background processing
-        
-        //NSLog(@"pay_clicked / keyboard dismissed");
-        
-       // NSString *access_token = [SSKeychain passwordForService:@"venmo_api" account:@"access_token"];
-       // NSString *host_id = [SSKeychain passwordForService:@"venmo_api" account:@"host_id"];
-        
-        //NSLog(@"host id = %@", host_id);
-        
-        // Get  potential error code from resulting transaction
-        
-        __block BOOL payment_processed = NO;
-        
-    // Create a NSURLSession to submit an HTTP POST request to Venmo
-       
-        /*
-        
-        
-        NSURLSessionConfiguration *defaultConfigObject = [NSURLSessionConfiguration defaultSessionConfiguration];
-        NSURLSession *defaultSession = [NSURLSession sessionWithConfiguration: defaultConfigObject delegate: nil delegateQueue: [NSOperationQueue mainQueue]];
-    
-        NSString *paymentURL = @"https://api.venmo.com/payments";
-    
-        NSURL * url = [NSURL URLWithString:paymentURL];
-        NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:url];
-        
-        NSString *params = [NSString stringWithFormat:@"access_token=%@&user_id=%@&amount=%f&note=%@", access_token, host_id, [[payment_field text] floatValue], [GlobalFunctions genRandStringLength:5]];
-        
-        [urlRequest setHTTPMethod:@"POST"];
-        [urlRequest setHTTPBody:[params dataUsingEncoding:NSUTF8StringEncoding]];
-    
-        NSURLSessionDataTask * dataTask =[defaultSession dataTaskWithRequest:urlRequest
-                                                           completionHandler:^(NSData *data, NSURLResponse *response, NSError *request_error) {
-                    
-                                                               
-           NSString *code;
-                                                               
-           //NSLog(@"Response:%@ %@\n", response, request_error);
-                                                               
-            if(request_error == nil)
-           {
-               
-               // Store response data in a dictionary
-               NSMutableDictionary *response_data = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil]];
-               
-               //NSLog(@"response = %@", response_data);
-               
-               if([response_data objectForKey:@"error" ] != nil) {
-                   NSLog(@"error processing payment!");
-                   
-                   // Get the error code
-                   code = [[response_data objectForKey:@"error"]objectForKey:@"code"];
-                   
-                   // There is an error on Venmo's side
-                   payment_processed = NO;
-                   
-                   //[[NSUserDefaults standardUserDefaults]setObject:code forKey:@"error_code"];
-                   
-                   // Get the error code set
-                   NSString *path_to_error_file = [[NSBundle mainBundle]pathForResource:@"Venmo_Errors" ofType:@"plist"];
-                   NSDictionary *error_codes = [[NSDictionary alloc]initWithContentsOfFile:path_to_error_file];
-                   NSString *error_message = [error_codes objectForKey:code];
-                   
-                   NSLog(@"error codes = %@", error_codes);
-                   
-                   [GlobalFunctions displayAlertDialogWithTitle:@"Error!" message:error_message cancelButtonTitle:@"OK"];
-                   
-               }
-               
-               else {
-                   // The payment went through
-                   NSLog(@"payment appears to have been processed");
-                   
-                   payment_processed = YES;
-                   
-                   //[[NSUserDefaults standardUserDefaults]setObject:nil forKey:@"error_code"];
-                   
-                   
-                   [payment_field resignFirstResponder];
-                   [[self navigationController]popViewControllerAnimated:YES];
 
-               }
-               
-            }
-                
-                                                               
-            else {
-                // There was a problem with the POST request
-                payment_processed = NO;
-                
-                code = @"1234";
-                
-                //[[NSUserDefaults standardUserDefaults]setObject:code forKey:@"error_code"];
-            }
-                   
-                                                               
-       }];
-        
-        [dataTask resume];
-        
-        
-        dispatch_async( dispatch_get_main_queue(), ^{
-            
-            [self updateBalLabel];
-            
-        });
-         
-         */
-    });
-
-        
-        
-    
-}
 
 // Assumes button has not been added to view yet
 -(void)fadeIn: (UIButton *)button {
@@ -359,9 +352,94 @@ static NSString * const messageKey = @"message-key"; // Message key
 }
 
 - (IBAction)enter_clicked:(id)sender {
+    
+    // dismiss keyboard
+    [amount_field resignFirstResponder];
+    [description_field resignFirstResponder];
+    
     // make the transaction
-    
-    
+
+    NSError *error;
+    NSString *msg = [amount_field text];
     // notify the peer
+    
+    NSLog(@"pids again = %@", peerIDs);
+    
+    [_session sendData:[msg dataUsingEncoding:NSUTF8StringEncoding] toPeers:[NSArray arrayWithObject:[peerIDs objectAtIndex:clicked_button_index]] withMode:MCSessionSendDataReliable error:&error];
+    
+    if(error) NSLog(@"the error = %@", error);
+    
+    
+    NSString *name = @"";
+    
+    if(clicked_button_index == 1) {
+        name = @"Nikhil Srinivasan";
+    }
+    else if(clicked_button_index == 2) {
+        name = @"Kevin Brenner";
+    }
+    else if(clicked_button_index == 3) {
+        name = @"Tony Puente";
+    }
+    
+    NSArray *info = [[NSArray alloc]initWithObjects:name, [description_field text], [NSDate date], nil];
+    
+    [transactions addObject:info];
+    
+    // dismiss the circle
+    [self fadeOut:[peerButtons objectAtIndex:clicked_button_index - 1]];
+    
+    [amount_field setText:@""];
+    [description_field setText:@""];
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        amount_field.alpha = 0;
+        enter_button.alpha = 0;
+        description_field.alpha = 0;
+    } completion: ^(BOOL finished) {
+        
+        
+    }];
+    
+    
+   // [feed_table reloadData];
+    [feed_table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+
 }
+
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [transactions count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
+    
+    NSArray *info = [transactions objectAtIndex:[indexPath row]];
+    
+    NSDate *date = [info objectAtIndex:2];
+    
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:date
+                                   dateStyle:NSDateFormatterShortStyle
+                                   timeStyle:NSDateFormatterShortStyle];
+    
+    [[cell textLabel]setText:[info objectAtIndex:0]];
+    [[cell detailTextLabel]setText:[[[info objectAtIndex:1] stringByAppendingString:@"     "]stringByAppendingString:dateString]];
+    
+    
+    
+    return cell;
+    
+}
+
+
+
+
+
 @end
