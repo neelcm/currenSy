@@ -52,7 +52,9 @@ static NSString * const messageKey = @"message-key"; // Message key
 - (void)viewDidLoad
 {
     
-    [CoinbaseAuth getDataCoinbaseAuth:@"test" clientKey:@"test" clientSecret:@"test"];
+    //[CoinbaseAuth getDataCoinbaseAuth:@"test" clientKey:@"test" clientSecret:@"test"];
+    [CoinbaseAuth testLoginWithAPIKeySecret];
+    
     
     NSLog(@"%@",[[UIDevice currentDevice]identifierForVendor]);
     

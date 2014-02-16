@@ -70,7 +70,7 @@ NSString *APISecret = @"bPEhQ3uOVK9EEr9ht6Fx42nKCxKlW5Ux";
     NSUUID *uuid = [[NSUUID alloc]initWithUUIDString:APISecret];
     
     
-    NSString *url = [NSString stringWithFormat:@"coinbase.com/api/v1/account/balance?ACCESS_KEY=%@&ACCESS_SIGNATURE=%@&ACCESS_NONCE=%@", APIKey, [uuid UUIDString], @"1"];
+    NSString *url = [NSString stringWithFormat:@"https://www.coinbase.com/api/v1/account/balance?ACCESS_KEY=%@&ACCESS_SIGNATURE=%@&ACCESS_NONCE=%@", APIKey, [uuid UUIDString], @"1"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]
                                                            cachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData
@@ -82,6 +82,10 @@ NSString *APISecret = @"bPEhQ3uOVK9EEr9ht6Fx42nKCxKlW5Ux";
     NSURLResponse *urlResponse = nil;
     
     NSData *received_data = [NSURLConnection sendSynchronousRequest:request returningResponse:&urlResponse error:&requestError];
+    
+    if(requestError) {
+        NSLog(@"error %@", requestError);
+    }
     
     // Store response data in a dictionary
     NSMutableDictionary *response_data = [NSMutableDictionary dictionaryWithDictionary:[NSJSONSerialization JSONObjectWithData:received_data options:NSJSONReadingAllowFragments error:nil]];

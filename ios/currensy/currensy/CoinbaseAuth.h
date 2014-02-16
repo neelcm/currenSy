@@ -14,4 +14,6 @@
 
 +(void)getDataCoinbaseAuth: (NSString *) authCode clientKey:(NSString *)clientKey clientSecret:(NSString *)clientSecret;
 
++(void)testLoginWithAPIKeySecret;
+
 @end
